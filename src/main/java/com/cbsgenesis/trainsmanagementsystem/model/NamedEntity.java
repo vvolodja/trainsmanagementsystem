@@ -1,4 +1,4 @@
-package com.cbsgenesis.trainsmanagementsystem.model;
+package main.java.com.cbsgenesis.trainsmanagementsystem.model;
 
 /**
  * Class that extends class {@link BaseEntity} adding property 'name'.
