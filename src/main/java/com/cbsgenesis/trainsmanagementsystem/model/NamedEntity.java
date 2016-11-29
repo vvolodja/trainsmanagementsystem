@@ -1,4 +1,4 @@
-package main.java.com.cbsgenesis.trainsmanagementsystem.model;
+package com.cbsgenesis.trainsmanagementsystem.model;
 
 /**
  * Class that extends class {@link BaseEntity} adding property 'name'.
@@ -13,12 +13,12 @@ public class NamedEntity extends BaseEntity {
     public NamedEntity() {
     }
 
-    public String getName() {
+    public String getDescription() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.name = description;
     }
 
     @Override

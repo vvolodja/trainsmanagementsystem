@@ -1,4 +1,4 @@
-package main.java.com.cbsgenesis.trainsmanagementsystem.model;
+package com.cbsgenesis.trainsmanagementsystem.model;
 
 /**
  * Base class that contains property 'id'.
