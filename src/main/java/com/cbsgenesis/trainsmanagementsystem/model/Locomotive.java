@@ -1,9 +1,9 @@
 package com.cbsgenesis.trainsmanagementsystem.model;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 /**
- * Created by Java on 29.11.2016.
+ * Simple JavaBean domain object that represents a Locomotive
  */
 public class Locomotive extends NamedEntity {
 
@@ -11,17 +11,17 @@ public class Locomotive extends NamedEntity {
     private int power;
     private int yearOfIssue;
     private String fuelType;
-    private Data service;
+    private Date serviceDate;
 
     public Locomotive() {
     }
 
-    public Locomotive(int capacity, int power, int yearOfIssue, String fuelType, Data service) {
+    public Locomotive(int capacity, int power, int yearOfIssue, String fuelType, Date serviceDate) {
         this.capacity = capacity;
         this.power = power;
         this.yearOfIssue = yearOfIssue;
         this.fuelType = fuelType;
-        this.service = service;
+        this.serviceDate = serviceDate;
     }
 
     public int getCapacity() {
@@ -56,22 +56,11 @@ public class Locomotive extends NamedEntity {
         this.fuelType = fuelType;
     }
 
-    public Data getService() {
-        return service;
+    public Date getServiceDate() {
+        return serviceDate;
     }
 
-    public void setService(Data service) {
-        this.service = service;
-    }
-
-    @Override
-    public String toString() {
-        return "Locomotive{" +
-                "capacity=" + capacity +
-                ", power=" + power +
-                ", yearOfIssue=" + yearOfIssue +
-                ", fuelType='" + fuelType + '\'' +
-                ", service=" + service +
-                '}';
+    public void setServiceDate(Date serviceDate) {
+        this.serviceDate = serviceDate;
     }
 }
