@@ -1,34 +1,15 @@
 package com.cbsgenesis.trainsmanagementsystem.model;
 
 /**
- * Created by Java on 29.11.2016.
+ * Simple abstract class that represents a Wagoon.
+ *
+ * @author Eugene Suliemanov
  */
-public class Wagoon extends NamedEntity{
-    private String type;
-    private int numberOfSeats;
+public abstract class Wagoon extends BaseEntity{
     private int weight;
 
-    public Wagoon(String type, int numberOfSeats, int weight) {
-        this.type = type;
-        this.numberOfSeats = numberOfSeats;
+    public Wagoon(int weight) {
         this.weight = weight;
-    }
-
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public int getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
     }
 
     public int getWeight() {
@@ -37,13 +18,5 @@ public class Wagoon extends NamedEntity{
 
     public void setWeight(int weight) {
         this.weight = weight;
-    }
-    @Override
-    public String toString() {
-        return "Wagoon{" +
-                "type='" + type + '\'' +
-                ", numberOfSeats=" + numberOfSeats +
-                ", weight=" + weight +
-                '}';
     }
 }
