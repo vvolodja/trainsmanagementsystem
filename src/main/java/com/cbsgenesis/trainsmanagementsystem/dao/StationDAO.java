@@ -2,10 +2,17 @@ package com.cbsgenesis.trainsmanagementsystem.dao;
 
 import com.cbsgenesis.trainsmanagementsystem.model.Station;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
- * Created by beClever on 29.11.16.
+ * Implementation of {@link GenericDAO} interface for class {@link Station}
+ *
+ * @author Eugene Suleimanov
  */
 public class StationDAO implements GenericDAO<Station> {
+
     @Override
     public Station getEntityById(Long id) {
         return null;
@@ -14,6 +21,11 @@ public class StationDAO implements GenericDAO<Station> {
     @Override
     public void saveEntity(Station station) {
         String stationToString = station.getId() + "," + station.getName() + "," + station.getDescription() + "/";
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/stations.txt"))) {
+            writer.write(stationToString);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -26,3 +38,27 @@ public class StationDAO implements GenericDAO<Station> {
 
     }
 }
+/*
+* ufferedWriter writer = null;
+try
+{
+    writer = new BufferedWriter( new FileWriter( yourfilename));
+    writer.write( yourstring);
+
+}
+catch ( IOException e)
+{
+}
+finally
+{
+    try
+    {
+        if ( writer != null)
+        writer.close( );
+    }
+    catch ( IOException e)
+    {
+    }
+}
+
+* */
