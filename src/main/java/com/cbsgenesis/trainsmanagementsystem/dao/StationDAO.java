@@ -5,15 +5,15 @@ import com.cbsgenesis.trainsmanagementsystem.model.Station;
 /**
  * Created by beClever on 29.11.16.
  */
-public class SationDAO implements GenericDAO<Station> {
+public class StationDAO implements GenericDAO<Station> {
     @Override
     public Station getEntityById(Long id) {
         return null;
     }
 
     @Override
-    public void saveEntity(Station entity) {
-
+    public void saveEntity(Station station) {
+        String stationToString = station.getId() + "," + station.getName() + "," + station.getDescription() + "/";
     }
 
     @Override
