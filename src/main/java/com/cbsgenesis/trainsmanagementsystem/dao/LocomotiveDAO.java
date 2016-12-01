@@ -3,7 +3,8 @@ package com.cbsgenesis.trainsmanagementsystem.dao;
 import com.cbsgenesis.trainsmanagementsystem.model.Locomotive;
 
 /**
- * Created by Java on 01.12.2016.
+ * Create Locomotive DAO
+ * @Author Evgenij Lukashik
  */
 public class LocomotiveDAO implements GenericDAO<Locomotive> {
     @Override
