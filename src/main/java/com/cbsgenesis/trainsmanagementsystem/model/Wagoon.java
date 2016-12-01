@@ -8,6 +8,9 @@ public class Wagoon extends NamedEntity{
     private int numberOfSeats;
     private int weight;
 
+    public Wagoon() {
+    }
+
     public Wagoon(String type, int numberOfSeats, int weight) {
         this.type = type;
         this.numberOfSeats = numberOfSeats;
