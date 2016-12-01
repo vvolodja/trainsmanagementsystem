@@ -6,7 +6,7 @@ package com.cbsgenesis.trainsmanagementsystem.model;
 public class Cargo extends NamedEntity {
     private String type;
     private int volume;
-    private  int weight;
+    private int weight;
     private int dimension;
     private int quantityOfCars;
 
@@ -48,6 +48,9 @@ public class Cargo extends NamedEntity {
 
     public void setQuatityOfCars(int quatityOfCars) {
         this.quantityOfCars = quatityOfCars;
+    }
+
+    public Cargo() {
     }
 
     public Cargo(String type, int volume, int weight, int dimension, int quatityOfCars) {
