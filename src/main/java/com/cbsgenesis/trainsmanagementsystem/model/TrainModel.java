@@ -17,6 +17,7 @@ public class TrainModel extends NamedEntity {
     }
 
     public TrainModel(String name, Locomotive locomotive, ArrayList<Wagoon> wagoons, List<Station> stations) {
+        this.setName(name);
         this.locomotive = locomotive;
         this.wagoons = wagoons;
         this.stations = stations;
