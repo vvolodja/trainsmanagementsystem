@@ -10,6 +10,7 @@ import com.cbsgenesis.trainsmanagementsystem.model.Station;
 public class StationFactory implements EntityFactory<Station>{
     @Override
     public Station createEntity() {
+
         return new Station();
     }
 
