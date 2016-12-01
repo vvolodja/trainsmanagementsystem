@@ -11,7 +11,6 @@ public class Station extends NamedEntity {
     public Station() {
     }
 
-
     public Station(String name, String description) {
         super(name);
         this.description = description;
