@@ -5,11 +5,15 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  *
  * @author Eugene Suliemanov
  */
-public abstract class Wagoon extends BaseEntity{
+public abstract class Wagoon extends BaseEntity {
     private int weight;
 
+
     public Wagoon(int weight) {
-        this.weight = weight;
+    }
+
+    public Wagoon() {
+
     }
 
     public int getWeight() {
