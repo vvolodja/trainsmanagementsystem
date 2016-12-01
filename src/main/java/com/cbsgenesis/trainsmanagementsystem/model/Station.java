@@ -8,6 +8,9 @@ package com.cbsgenesis.trainsmanagementsystem.model;
 public class Station extends NamedEntity {
     private String description;
 
+    public Station() {
+    }
+
     public Station(String description) {
         this.description = description;
     }
