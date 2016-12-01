@@ -13,6 +13,10 @@ public class NamedEntity extends BaseEntity {
     public NamedEntity() {
     }
 
+    public NamedEntity(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
