@@ -11,6 +11,12 @@ public class Station extends NamedEntity {
     public Station() {
     }
 
+
+    public Station(String name, String description) {
+        super(name);
+        this.description = description;
+    }
+
     public Station(String description) {
         this.description = description;
     }
