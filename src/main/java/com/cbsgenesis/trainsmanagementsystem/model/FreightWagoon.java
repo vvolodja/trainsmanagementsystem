@@ -6,8 +6,25 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  * @author Eugene Suleimanov
  */
 public class FreightWagoon extends Wagoon{
+    private String type;
 
-    public FreightWagoon(int weight) {
+    public FreightWagoon(int weight, String type) {
         super(weight);
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "FreightWagoon{" +
+                "type='" + type + '\'' +
+                '}';
     }
 }

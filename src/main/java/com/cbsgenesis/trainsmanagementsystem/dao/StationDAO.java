@@ -38,27 +38,3 @@ public class StationDAO implements GenericDAO<Station> {
 
     }
 }
-/*
-* ufferedWriter writer = null;
-try
-{
-    writer = new BufferedWriter( new FileWriter( yourfilename));
-    writer.write( yourstring);
-
-}
-catch ( IOException e)
-{
-}
-finally
-{
-    try
-    {
-        if ( writer != null)
-        writer.close( );
-    }
-    catch ( IOException e)
-    {
-    }
-}
-
-* */
