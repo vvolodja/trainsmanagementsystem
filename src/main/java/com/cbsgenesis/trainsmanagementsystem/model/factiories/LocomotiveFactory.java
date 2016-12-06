@@ -1,9 +1,12 @@
 package com.cbsgenesis.trainsmanagementsystem.model.factiories;
 
 import com.cbsgenesis.trainsmanagementsystem.model.Locomotive;
+import com.cbsgenesis.trainsmanagementsystem.model.Station;
 
 /**
- * Created by Java on 01.12.2016.
+ * Implementation of {@link EntityFactory} interface for class {@link Station}.
+ *
+ * @author Eugenij Lukashik
  */
 public class LocomotiveFactory implements EntityFactory<Locomotive> {
 
