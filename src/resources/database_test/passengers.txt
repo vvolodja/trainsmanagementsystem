@@ -1,0 +1,1 @@
+1,Andrey,Babenko,Ticket{firstName='Andrey', lastName='Babenko', typeOfWagoon='VIP', place=12, departureDate=Tue Dec 06 19:43:43 EET 2016, arriveDate=Tue Dec 06 19:43:43 EET 2016, bed=true, tea=1, coffee=0, baggage=10}/

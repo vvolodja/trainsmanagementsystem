@@ -3,12 +3,11 @@ package com.cbsgenesis.trainsmanagementsystem.dao;
 import com.cbsgenesis.trainsmanagementsystem.model.Passenger;
 
 import java.io.*;
-import java.util.Scanner;
 
 /**
- * Implementation of {@link GenericDAO} interface for class {@link PassengerDAO}.
+ * Implementation of {@link GenericDAO} interface for class {@link Passenger}.
  *
- * Created by andreyb1990 on 12/1/16.
+ * Created by Andrey Babenko on 12/1/16.
  */
 public class PassengerDAO implements GenericDAO<Passenger> {
 
@@ -19,9 +18,12 @@ public class PassengerDAO implements GenericDAO<Passenger> {
 
     @Override
     public void saveEntity(Passenger passenger) {
-        String passengerToString = passenger.getId() + "," + passenger.getName() + "," + passenger.getTicket()+ "/";
+        String passengerToString = passenger.getId() + "," +
+                passenger.getFirstName() + "," +
+                passenger.getLastName() + "," +
+                passenger.getTicket() + "/";
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/andreyb1990/IdeaProjects/TrainsManagementSystem/src/resources/database_test/passengers.txt"))) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/resources/database_test/passengers.txt"))) {
             writer.write(passengerToString);
         }catch (IOException e){
             e.printStackTrace();
@@ -31,7 +33,6 @@ public class PassengerDAO implements GenericDAO<Passenger> {
 
     @Override
     public void updateEntity(Passenger passenger) {
-        String passengerToString = passenger.getId() + "," + passenger.getName() + "," + passenger.getTicket()+ "/";
 
 
 
