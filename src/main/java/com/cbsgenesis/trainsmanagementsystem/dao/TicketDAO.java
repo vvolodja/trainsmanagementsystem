@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * Implementation of {@link GenericDAO} interface for class {@link Ticket}.
  *
- * @author Andrey Babenko on 12/6/16.
+ * @author Andrey Babenko
  */
 public class TicketDAO implements GenericDAO<Ticket> {
     String filePath = "src/resources/database_test/tickets.txt";

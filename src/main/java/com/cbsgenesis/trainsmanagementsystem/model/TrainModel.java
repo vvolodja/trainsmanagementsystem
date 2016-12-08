@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Simple class that represents trains
  *
- * @author Andrey Babenko on 11/29/16.
+ * @author Andrey Babenko
  */
 public class TrainModel extends NamedEntity {
     private Locomotive locomotive;
