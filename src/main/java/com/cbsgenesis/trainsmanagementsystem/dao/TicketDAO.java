@@ -4,7 +4,9 @@ import com.cbsgenesis.trainsmanagementsystem.model.Ticket;
 
 import java.io.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -33,17 +35,21 @@ public class TicketDAO implements GenericDAO<Ticket> {
                         ticket.setLastName(splitedLine[2]);
                         ticket.setTypeOfWagoon(splitedLine[3]);
                         ticket.setPlace(Integer.parseInt(splitedLine[4]));
-
-                        DateFormat format = new SimpleDateFormat("EEE MMM dd hh:mm", Locale.ENGLISH);
-                        ticket.setDepartureDate();
-
+                        DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm", Locale.ENGLISH);
+                        ticket.setDepartureDate(dateFormat.parse(splitedLine[5]));
+                        ticket.setArriveDate(dateFormat.parse(splitedLine[6]));
+                        ticket.setBed(Boolean.parseBoolean(splitedLine[7]));
+                        ticket.setTea(Integer.parseInt(splitedLine[8]));
+                        ticket.setCoffee(Integer.parseInt(splitedLine[9]));
+                        ticket.setBaggage(Integer.parseInt(splitedLine[10]));
                     }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-
         return ticket;
     }
 
@@ -70,11 +76,34 @@ public class TicketDAO implements GenericDAO<Ticket> {
 
     @Override
     public void updateEntity(Ticket ticket) {
+        removeEntity(ticket);
 
+        saveEntity(ticket);
     }
 
     @Override
     public void removeEntity(Ticket ticket) {
+        try(BufferedReader reader = new BufferedReader(new FileReader("src/resources/database_test/tickets.txt"))) {
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
+
+                    Long firstLong = Long.parseLong(splitedLine[0]);
+
+                    if (firstLong == ticket.getId()) {
+                        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/resources/database_test/tickets.txt"))) {
+                            writer.write("");
+                        }catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

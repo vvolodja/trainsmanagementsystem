@@ -6,6 +6,7 @@ import com.cbsgenesis.trainsmanagementsystem.model.Ticket;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Test class for {@link TicketDAO}
@@ -16,24 +17,45 @@ public class TicketDAOTest {
     public static void main(String[] args) {
         TicketDAO ticketDAO = new TicketDAO();
 
-        Ticket ticket = new Ticket();
-        ticket.setId(1L);
-        ticket.setFirstName("Andrey");
-        ticket.setLastName("Babenko");
-        ticket.setTypeOfWagoon("VIP");
-        ticket.setPlace(12);
+        // Old Ticket
+        Ticket oldTicket = new Ticket();
+        oldTicket.setId(1L);
+        oldTicket.setFirstName("Andrey");
+        oldTicket.setLastName("Babenko");
+        oldTicket.setTypeOfWagoon("VIP");
+        oldTicket.setPlace(12);
+        oldTicket.setDepartureDate(new Date(2017,05,10,12,00));
+        oldTicket.setArriveDate(new Date(2017,05,20,9,30));
+        oldTicket.setBed(true);
+        oldTicket.setTea(1);
+        oldTicket.setCoffee(0);
+        oldTicket.setBaggage(10);
 
-        DateFormat format = new SimpleDateFormat("EEE MMM dd hh:mm");
+        Ticket newTicket = new Ticket();
+        newTicket.setId(1L);
+        newTicket.setFirstName("Viktoria");
+        newTicket.setLastName("Babenko");
+        newTicket.setTypeOfWagoon("VIP");
+        newTicket.setPlace(10);
+        newTicket.setDepartureDate(new Date(2017,05,10,12,00));
+        newTicket.setArriveDate(new Date(2017,05,20,9,30));
+        newTicket.setBed(true);
+        newTicket.setTea(2);
+        newTicket.setCoffee(1);
+        newTicket.setBaggage(20);
 
-        Date departureDate = format.parse("Tue Dec 06 20:19");
+        // Save Ticket
+        ticketDAO.saveEntity(oldTicket);
 
-        ticket.setDepartureDate(new Date());
-        ticket.setArriveDate(new Date());
-        ticket.setBed(true);
-        ticket.setTea(1);
-        ticket.setCoffee(0);
-        ticket.setBaggage(10);
+        // Get Ticket By Id
+//        System.out.println(ticketDAO.getEntityById(1L));
 
-        ticketDAO.getEntityById(1L);
+        // Update Ticket
+//        ticketDAO.updateEntity(newTicket);
+
+        //Remove Ticket
+//        ticketDAO.removeEntity(oldTicket);
+
+
     }
 }
