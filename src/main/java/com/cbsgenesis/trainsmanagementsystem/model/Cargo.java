@@ -18,6 +18,26 @@ public class Cargo extends NamedEntity {
         this.type = type;
     }
 
+    public Cargo() {
+    }
+
+    public Cargo(String type, int volume, int weight, int dimension, int quantityOfCars) {
+        this.type = type;
+        this.volume = volume;
+        this.weight = weight;
+        this.dimension = dimension;
+        this.quantityOfCars = quantityOfCars;
+    }
+
+    public Cargo(String name, String type, int volume, int weight, int dimension, int quantityOfCars) {
+        super(name);
+        this.type = type;
+        this.volume = volume;
+        this.weight = weight;
+        this.dimension = dimension;
+        this.quantityOfCars = quantityOfCars;
+    }
+
     public int getVolume() {
         return volume;
     }
@@ -42,25 +62,14 @@ public class Cargo extends NamedEntity {
         this.dimension = dimension;
     }
 
-    public int getQuatityOfCars() {
+    public int getQuantityOfCars() {
         return quantityOfCars;
     }
 
-    public void setQuatityOfCars(int quatityOfCars) {
-        this.quantityOfCars = quatityOfCars;
+    public void setQuantityOfCars(int quantityOfCars) {
+        this.quantityOfCars = quantityOfCars;
     }
 
-    public Cargo() {
-    }
-
-    public Cargo(String type, int volume, int weight, int dimension, int quatityOfCars) {
-
-        this.type = type;
-        this.volume = volume;
-        this.weight = weight;
-        this.dimension = dimension;
-        this.quantityOfCars = quatityOfCars;
-    }
     @Override
     public String toString() {
         return "Cargo{" +
@@ -68,7 +77,7 @@ public class Cargo extends NamedEntity {
                 ", volume=" + volume +
                 ", weight=" + weight +
                 ", dimension=" + dimension +
-                ", quatityOfCars=" + quantityOfCars +
+                ", quantityOfCars=" + quantityOfCars +
                 '}';
     }
 }
