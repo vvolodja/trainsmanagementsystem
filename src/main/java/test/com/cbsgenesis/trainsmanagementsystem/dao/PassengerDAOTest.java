@@ -28,14 +28,29 @@ public class PassengerDAOTest {
         ticket.setCoffee(0);
         ticket.setBaggage(10);
 
+        Passenger oldPassenger = new Passenger();
+        oldPassenger.setId(1L);
+        oldPassenger.setFirstName("Andrey");
+        oldPassenger.setLastName("Babenko");
+        oldPassenger.setTicket(ticket);
 
-        Passenger passenger = new Passenger();
-        passenger.setId(1L);
-        passenger.setFirstName("Andrey");
-        passenger.setLastName("Babenko");
-        passenger.setTicket(ticket);
+        Passenger newPassenger = new Passenger();
+        newPassenger.setId(1L);
+        newPassenger.setFirstName("Viktoria");
+        newPassenger.setLastName("Babenko");
+        newPassenger.setTicket(ticket);
 
-        passengerDAO.saveEntity(passenger);
+        // Save Passenger
+//        passengerDAO.saveEntity(oldPassenger);
+
+        // Get Passenger By Id
+        passengerDAO.getEntityById(1L);
+
+        // Update Passenger
+//        passengerDAO.updateEntity(newPassenger);
+
+        //Remove Passenger
+//        passengerDAO.removeEntity(oldPassenger);
 
     }
 
