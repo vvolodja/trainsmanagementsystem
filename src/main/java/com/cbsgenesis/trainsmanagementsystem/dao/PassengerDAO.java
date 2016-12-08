@@ -59,7 +59,13 @@ public class PassengerDAO implements GenericDAO<Passenger> {
                         passenger.getLastName() + "," +
                         passenger.getTicketId() + "/";
 
-                String newFile = existingFile.append(passengerToString).toString();
+                String newFile;
+
+                if (existingFile.toString().equals("")) {
+                    newFile = existingFile.append(passengerToString).toString();
+                } else {
+                    newFile = existingFile.append("\n").append(passengerToString).toString();
+                }
 
                 try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                     writer.write(newFile);

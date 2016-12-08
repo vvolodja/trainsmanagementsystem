@@ -82,7 +82,13 @@ public class TicketDAO implements GenericDAO<Ticket> {
                     ticket.getCoffee() + "," +
                     ticket.getBaggage() + "/";
 
-                String newFile = existingFile.append(ticketToString).toString();
+                String newFile;
+
+                if (existingFile.toString().equals("")) {
+                    newFile = existingFile.append(ticketToString).toString();
+                } else {
+                    newFile = existingFile.append("\n").append(ticketToString).toString();
+                }
 
                 try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                     writer.write(newFile);
