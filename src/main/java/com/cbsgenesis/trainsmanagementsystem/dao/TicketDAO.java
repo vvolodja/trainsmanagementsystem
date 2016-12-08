@@ -13,14 +13,16 @@ import java.util.Scanner;
 /**
  * Implementation of {@link GenericDAO} interface for class {@link Ticket}.
  *
- * Created by Andrey Babenko on 12/6/16.
+ * @author Andrey Babenko on 12/6/16.
  */
 public class TicketDAO implements GenericDAO<Ticket> {
+    String filePath = "src/resources/database_test/tickets.txt";
+
     @Override
     public Ticket getEntityById(Long id) {
         Ticket ticket = new Ticket();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader("src/resources/database_test/tickets.txt"))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
             while ((read = reader.readLine()) != null) {
                 String[] splitedFile = read.split("/");
@@ -67,7 +69,7 @@ public class TicketDAO implements GenericDAO<Ticket> {
                 ticket.getCoffee() + "," +
                 ticket.getBaggage() + "/";
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/resources/database_test/tickets.txt"))) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(ticketToString);
         }catch (IOException e){
             e.printStackTrace();
@@ -83,7 +85,7 @@ public class TicketDAO implements GenericDAO<Ticket> {
 
     @Override
     public void removeEntity(Ticket ticket) {
-        try(BufferedReader reader = new BufferedReader(new FileReader("src/resources/database_test/tickets.txt"))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
             while ((read = reader.readLine()) != null) {
                 String[] splitedFile = read.split("/");
@@ -93,7 +95,7 @@ public class TicketDAO implements GenericDAO<Ticket> {
                     Long firstLong = Long.parseLong(splitedLine[0]);
 
                     if (firstLong == ticket.getId()) {
-                        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/resources/database_test/tickets.txt"))) {
+                        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                             writer.write("");
                         }catch (IOException e){
                             e.printStackTrace();

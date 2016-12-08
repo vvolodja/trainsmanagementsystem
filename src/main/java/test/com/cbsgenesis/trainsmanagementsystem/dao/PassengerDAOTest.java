@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Test class for {@link PassengerDAO}
  *
- * Created by Andrey Babenko on 12/1/16.
+ * @author Andrey Babenko on 12/1/16.
  */
 public class PassengerDAOTest {
     public static void main(String[] args) {

@@ -11,7 +11,7 @@ import java.util.Locale;
 /**
  * Test class for {@link TicketDAO}
  *
- * Created by Andrey Babenko on 12/6/16.
+ * @author Andrey Babenko on 12/6/16.
  */
 public class TicketDAOTest {
     public static void main(String[] args) {

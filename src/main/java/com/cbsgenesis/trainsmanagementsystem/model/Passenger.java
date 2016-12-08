@@ -5,7 +5,7 @@ import com.cbsgenesis.trainsmanagementsystem.dao.TicketDAO;
 /**
  * Simple class that represents passenger
  *
- * Created by Andrey Babenko on 12/1/16.
+ * @author Andrey Babenko on 12/1/16.
  */
 public class Passenger extends BaseEntity {
     private String firstName;

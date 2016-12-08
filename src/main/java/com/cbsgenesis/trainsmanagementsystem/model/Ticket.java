@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Simple class that represents ticker
  *
- * Created by Andrey Babenko on 12/1/16.
+ * @author Andrey Babenko on 12/1/16.
  */
 public class Ticket extends BaseEntity {
     private String firstName;

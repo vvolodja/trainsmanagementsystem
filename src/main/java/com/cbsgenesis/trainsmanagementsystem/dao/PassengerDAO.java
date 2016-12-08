@@ -7,15 +7,16 @@ import java.io.*;
 /**
  * Implementation of {@link GenericDAO} interface for class {@link Passenger}.
  *
- * Created by Andrey Babenko on 12/1/16.
+ * @author Andrey Babenko.
  */
 public class PassengerDAO implements GenericDAO<Passenger> {
+    String filePath = "src/resources/database_test/passengers.txt";
 
     @Override
     public Passenger getEntityById(Long id) {
         Passenger passenger = new Passenger();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader("src/resources/database_test/passengers.txt"))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
             while ((read = reader.readLine()) != null) {
                 String[] splitedFile = read.split("/");
@@ -45,7 +46,7 @@ public class PassengerDAO implements GenericDAO<Passenger> {
                 passenger.getLastName() + "," +
                 passenger.getTicketId() + "/";
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/resources/database_test/passengers.txt"))) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(passengerToString);
         }catch (IOException e){
             e.printStackTrace();
@@ -62,7 +63,7 @@ public class PassengerDAO implements GenericDAO<Passenger> {
 
     @Override
     public void removeEntity(Passenger passenger) {
-        try(BufferedReader reader = new BufferedReader(new FileReader("src/resources/database_test/passengers.txt"))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
             while ((read = reader.readLine()) != null) {
                 String[] splitedFile = read.split("/");
@@ -72,7 +73,7 @@ public class PassengerDAO implements GenericDAO<Passenger> {
                     Long firstLong = Long.parseLong(splitedLine[0]);
 
                     if (firstLong == passenger.getId()) {
-                        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/resources/database_test/passengers.txt"))) {
+                        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                             writer.write("");
                         }catch (IOException e){
                             e.printStackTrace();
