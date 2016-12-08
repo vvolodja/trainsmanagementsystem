@@ -1,38 +1,56 @@
 package com.cbsgenesis.trainsmanagementsystem.model;
 
+import com.cbsgenesis.trainsmanagementsystem.dao.TicketDAO;
+
 /**
  * Simple class that represents passenger
  *
- * Created by andreyb1990 on 12/1/16.
+ * @author Andrey Babenko on 12/1/16.
  */
-public class Passenger extends NamedEntity {
-    private Ticket ticket;
+public class Passenger extends BaseEntity {
+    private String firstName;
+    private String lastName;
+    private Long ticketId;
 
     public Passenger() {
     }
 
-    public Passenger(String name) {
-        super(name);
+    public Passenger(String firstName, String lastName, Long ticketId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.ticketId = ticketId;
     }
 
-    public Passenger(String name, Ticket ticket) {
-        super(name);
-        this.ticket = ticket;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Ticket getTicket() {
-        return ticket;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Long getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(Long ticketId) {
+        this.ticketId = ticketId;
     }
 
     @Override
     public String toString() {
         return "Passenger{" +
-                "name=" + super.getName() +
-                "ticket=" + ticket +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", ticketId=" + ticketId +
                 '}';
     }
 }
