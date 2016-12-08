@@ -7,7 +7,7 @@ import java.io.*;
 /**
  * Implementation of {@link GenericDAO} interface for class {@link Passenger}.
  *
- * @author Andrey Babenko.
+ * @author Andrey Babenko
  */
 public class PassengerDAO implements GenericDAO<Passenger> {
     String filePath = "src/resources/database_test/passengers.txt";
