@@ -31,7 +31,7 @@ public class TicketDAO implements GenericDAO<Ticket> {
 
                     Long firstLong = Long.parseLong(splitedLine[0]);
 
-                    if (firstLong == id) {
+                    if (firstLong.equals(id)) {
                         ticket.setId(firstLong);
                         ticket.setFirstName(splitedLine[1]);
                         ticket.setLastName(splitedLine[2]);
@@ -57,22 +57,43 @@ public class TicketDAO implements GenericDAO<Ticket> {
 
     @Override
     public void saveEntity(Ticket ticket) {
-        String ticketToString = ticket.getId() + "," +
-                ticket.getFirstName() + "," +
-                ticket.getLastName() + "," +
-                ticket.getTypeOfWagoon() + "," +
-                ticket.getPlace() + "," +
-                ticket.getDepartureDate() + "," +
-                ticket.getArriveDate() + "," +
-                ticket.isBed() + "," +
-                ticket.getTea() + "," +
-                ticket.getCoffee() + "," +
-                ticket.getBaggage() + "/";
+        Ticket existingTicket = getEntityById(ticket.getId());
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write(ticketToString);
-        }catch (IOException e){
-            e.printStackTrace();
+        if (ticket.getId().equals(existingTicket.getId())) {
+            System.err.println("Ticket with such id is already existing");
+        } else {
+            try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+                StringBuilder existingFile = new StringBuilder();
+                String read;
+
+                while ((read = reader.readLine()) != null) {
+                    existingFile.append(read);
+                }
+
+                String ticketToString = ticket.getId() + "," +
+                    ticket.getFirstName() + "," +
+                    ticket.getLastName() + "," +
+                    ticket.getTypeOfWagoon() + "," +
+                    ticket.getPlace() + "," +
+                    ticket.getDepartureDate() + "," +
+                    ticket.getArriveDate() + "," +
+                    ticket.isBed() + "," +
+                    ticket.getTea() + "," +
+                    ticket.getCoffee() + "," +
+                    ticket.getBaggage() + "/";
+
+                String newFile = existingFile.append(ticketToString).toString();
+
+                try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                    writer.write(newFile);
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -94,7 +115,7 @@ public class TicketDAO implements GenericDAO<Ticket> {
 
                     Long firstLong = Long.parseLong(splitedLine[0]);
 
-                    if (firstLong == ticket.getId()) {
+                    if (firstLong.equals(ticket.getId())) {
                         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                             writer.write("");
                         }catch (IOException e){
