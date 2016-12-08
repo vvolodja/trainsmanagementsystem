@@ -1,5 +1,7 @@
 package com.cbsgenesis.trainsmanagementsystem.model;
 
+import com.cbsgenesis.trainsmanagementsystem.dao.TicketDAO;
+
 /**
  * Simple class that represents passenger
  *
@@ -8,15 +10,15 @@ package com.cbsgenesis.trainsmanagementsystem.model;
 public class Passenger extends BaseEntity {
     private String firstName;
     private String lastName;
-    private Ticket ticket;
+    private Long ticketId;
 
     public Passenger() {
     }
 
-    public Passenger(String firstName, String lastName, Ticket ticket) {
+    public Passenger(String firstName, String lastName, Long ticketId) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.ticket = ticket;
+        this.ticketId = ticketId;
     }
 
     public String getFirstName() {
@@ -35,12 +37,12 @@ public class Passenger extends BaseEntity {
         this.lastName = lastName;
     }
 
-    public Ticket getTicket() {
-        return ticket;
+    public Long getTicketId() {
+        return ticketId;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public void setTicketId(Long ticketId) {
+        this.ticketId = ticketId;
     }
 
     @Override
@@ -48,7 +50,7 @@ public class Passenger extends BaseEntity {
         return "Passenger{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", ticket=" + ticket +
+                ", ticketId=" + ticketId +
                 '}';
     }
 }

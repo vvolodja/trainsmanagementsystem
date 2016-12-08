@@ -21,16 +21,21 @@ public class PassengerDAO implements GenericDAO<Passenger> {
                 String[] splitedFile = read.split("/");
                 for (String line : splitedFile) {
                     String[] splitedLine = line.split(",");
+
                     Long firstLong = Long.parseLong(splitedLine[0]);
 
-
-
+                    if (firstLong == id) {
+                        passenger.setId(firstLong);
+                        passenger.setFirstName(splitedLine[1]);
+                        passenger.setLastName(splitedLine[2]);
+                        passenger.setTicketId(Long.parseLong(splitedLine[3]));
+                    }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return passenger;
     }
 
     @Override
@@ -38,7 +43,7 @@ public class PassengerDAO implements GenericDAO<Passenger> {
         String passengerToString = passenger.getId() + "," +
                 passenger.getFirstName() + "," +
                 passenger.getLastName() + "," +
-                passenger.getTicket() + "/";
+                passenger.getTicketId() + "/";
 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/resources/database_test/passengers.txt"))) {
             writer.write(passengerToString);

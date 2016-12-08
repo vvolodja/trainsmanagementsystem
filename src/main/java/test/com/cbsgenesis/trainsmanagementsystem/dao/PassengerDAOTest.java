@@ -32,19 +32,19 @@ public class PassengerDAOTest {
         oldPassenger.setId(1L);
         oldPassenger.setFirstName("Andrey");
         oldPassenger.setLastName("Babenko");
-        oldPassenger.setTicket(ticket);
+        oldPassenger.setTicketId(1L);
 
         Passenger newPassenger = new Passenger();
         newPassenger.setId(1L);
         newPassenger.setFirstName("Viktoria");
         newPassenger.setLastName("Babenko");
-        newPassenger.setTicket(ticket);
+        newPassenger.setTicketId(1L);
 
         // Save Passenger
 //        passengerDAO.saveEntity(oldPassenger);
 
         // Get Passenger By Id
-        passengerDAO.getEntityById(1L);
+        System.out.println(passengerDAO.getEntityById(1L));
 
         // Update Passenger
 //        passengerDAO.updateEntity(newPassenger);
