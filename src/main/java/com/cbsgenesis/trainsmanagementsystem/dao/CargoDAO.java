@@ -9,7 +9,7 @@ import java.io.*;
  */
 public class CargoDAO implements GenericDAO<Cargo> {
 
-    String filePath = "/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/cargo.txt";
+    String filePath = "Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_test/cargo.txt";
 
 
     @Override
@@ -55,7 +55,7 @@ public class CargoDAO implements GenericDAO<Cargo> {
                 cargo.getDimension() + "," +
                 cargo.getQuantityOfCars() + "/";
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/cargo.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(cargoToString);
         } catch (IOException e) {
             e.printStackTrace();
