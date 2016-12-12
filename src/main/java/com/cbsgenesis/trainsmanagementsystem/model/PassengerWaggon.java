@@ -7,12 +7,28 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  */
 
 public class PassengerWaggon extends Wagoon{
+    private String typeOfComfort;
     private int numberOfSeats;
-    private String type;
 
-    public PassengerWaggon(int weight, int numberOfSeats) {
+    public PassengerWaggon(int weight) {
         super(weight);
-        this.numberOfSeats = numberOfSeats;
+    }
+
+    public PassengerWaggon(int weight, String typeOfComfort) {
+        super(weight);
+        this.typeOfComfort = typeOfComfort;
+    }
+
+    public PassengerWaggon(String typeOfComfort) {
+        this.typeOfComfort = typeOfComfort;
+    }
+
+    public String getTypeOfComfort() {
+        return typeOfComfort;
+    }
+
+    public void setTypeOfComfort(String typeOfComfort) {
+        this.typeOfComfort = typeOfComfort;
     }
 
     public int getNumberOfSeats() {
@@ -23,19 +39,11 @@ public class PassengerWaggon extends Wagoon{
         this.numberOfSeats = numberOfSeats;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     @Override
     public String toString() {
         return "PassengerWaggon{" +
-                "numberOfSeats=" + numberOfSeats +
-                ", type='" + type + '\'' +
+                "typeOfComfort='" + typeOfComfort + '\'' +
+                ", numberOfSeats=" + numberOfSeats +
                 '}';
     }
 }

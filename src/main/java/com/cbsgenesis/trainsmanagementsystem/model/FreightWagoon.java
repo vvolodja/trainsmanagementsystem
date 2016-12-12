@@ -6,25 +6,43 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  * @author @Eugeny Nenenko
  */
 public class FreightWagoon extends Wagoon{
-    private String type;
+    private String typeOfCargoWagoon;
+    private int dimensionOfWagoon;
 
-    public FreightWagoon(int weight, String type) {
+    public FreightWagoon(int weight) {
         super(weight);
-        this.type = type;
     }
 
-    public String getType() {
-        return type;
+    public FreightWagoon(int weight, String typeOfCargoWagoon) {
+        super(weight);
+        this.typeOfCargoWagoon = typeOfCargoWagoon;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public FreightWagoon(String typeOfCargoWagoon) {
+        this.typeOfCargoWagoon = typeOfCargoWagoon;
+    }
+
+    public String getTypeOfCargoWagoon() {
+        return typeOfCargoWagoon;
+    }
+
+    public void setTypeOfCargoWagoon(String typeOfCargoWagoon) {
+        this.typeOfCargoWagoon = typeOfCargoWagoon;
+    }
+
+    public int getDimensionOfWagoon() {
+        return dimensionOfWagoon;
+    }
+
+    public void setDimensionOfWagoon(int dimensionOfWagoon) {
+        this.dimensionOfWagoon = dimensionOfWagoon;
     }
 
     @Override
     public String toString() {
         return "FreightWagoon{" +
-                "type='" + type + '\'' +
+                "typeOfCargoWagoon='" + typeOfCargoWagoon + '\'' +
+                ", dimensionOfWagoon=" + dimensionOfWagoon +
                 '}';
     }
 }

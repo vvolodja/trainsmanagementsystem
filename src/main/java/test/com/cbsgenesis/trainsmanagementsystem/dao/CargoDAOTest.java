@@ -1,5 +1,6 @@
 package test.com.cbsgenesis.trainsmanagementsystem.dao;
 
+
 import com.cbsgenesis.trainsmanagementsystem.dao.CargoDAO;
 import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 
@@ -11,8 +12,14 @@ public class CargoDAOTest {
         CargoDAO cargoDAO = new CargoDAO();
 
         Cargo cargo = new Cargo();
+
         cargo.setId(1L);
-        cargo.setName("Test Name");
+        cargo.setType("Type of Cargo");
+        cargo.setVolume(100);
+        cargo.setWeight(500);
+        cargo.setDimension(3000);
+        cargo.setQuantityOfCars(10);
+
 
         cargoDAO.saveEntity(cargo);
     }

@@ -2,23 +2,58 @@ package com.cbsgenesis.trainsmanagementsystem.dao;
 
 import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 /** create CargoDAO
  * @Eugeny Nenenko on 06.12.2016.
  */
 public class CargoDAO implements GenericDAO<Cargo> {
 
+    String filePath = "/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/cargo.txt";
+
+
     @Override
     public Cargo getEntityById(Long id) {
-        return null;
+
+        Cargo cargo = new Cargo();
+
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
+
+                    Long firstLong = Long.parseLong(splitedLine[0]);
+
+                    if (firstLong == id) {
+                        cargo.setId(firstLong);
+                        cargo.setType(splitedLine[1]);
+                        cargo.setVolume(Integer.parseInt(splitedLine[2]));
+                        cargo.setWeight(Integer.parseInt(splitedLine[3]));
+                        cargo.setDimension(Integer.parseInt(splitedLine[4]));
+                        cargo.setQuantityOfCars(Integer.parseInt(splitedLine[5]));
+
+
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return cargo;
     }
+
 
     @Override
     public void saveEntity(Cargo cargo) {
-        String cargoToString = cargo.getType() + "," + cargo.getVolume() + "," + cargo.getWeight() + "," + cargo.getDimension() + "," + cargo.getQuatityOfCars() + "/";
+        String cargoToString = cargo.getId() + "," +
+                cargo.getType() + "," +
+                cargo.getVolume() + "," +
+                cargo.getWeight() + "," +
+                cargo.getDimension() + "," +
+                cargo.getQuantityOfCars() + "/";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/cargo.txt"))) {
             writer.write(cargoToString);
@@ -30,26 +65,35 @@ public class CargoDAO implements GenericDAO<Cargo> {
     }
 
     @Override
-    public void updateEntity(Cargo cargo) {String cargoToString = cargo.getType() + "," + cargo.getVolume() + "," + cargo.getWeight() + "," + cargo.getDimension() + "," + cargo.getQuatityOfCars() + "/";
+    public void updateEntity(Cargo cargo) {
+        removeEntity(cargo);
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/cargo.txt"))) {
-            writer.write(cargoToString);
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        }
+        saveEntity(cargo);
 
     }
 
     @Override
-    public void removeEntity(Cargo cargo) {String cargoToString = cargo.getType() + "," + cargo.getVolume() + "," + cargo.getWeight() + "," + cargo.getDimension() + "," + cargo.getQuatityOfCars() + "/";
+    public void removeEntity(Cargo cargo) {try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        String read = null;
+        while ((read = reader.readLine()) != null) {
+            String[] splitedFile = read.split("/");
+            for (String line : splitedFile) {
+                String[] splitedLine = line.split(",");
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/cargo.txt"))) {
-            writer.write(cargoToString);
-        } catch (IOException e) {
-            e.printStackTrace();
+                Long firstLong = Long.parseLong(splitedLine[0]);
 
+                if (firstLong == cargo.getId()) {
+                    try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                        writer.write("");
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
 
     }
 }
