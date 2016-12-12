@@ -6,8 +6,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- * Created by Евгений on 06.12.2016.
+/** create CargoDAO
+ * @Eugeny Nenenko on 06.12.2016.
  */
 public class CargoDAO implements GenericDAO<Cargo> {
 

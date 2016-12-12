@@ -11,17 +11,17 @@ public class Locomotive extends NamedEntity {
     private int power;
     private int yearOfIssue;
     private String fuelType;
-    private Date serviceDate;
+    private Date lastServiceDate;
 
     public Locomotive() {
     }
 
-    public Locomotive(int capacity, int power, int yearOfIssue, String fuelType, Date serviceDate) {
+    public Locomotive(int capacity, int power, int yearOfIssue, String fuelType, Date lastServiceDate) {
         this.capacity = capacity;
         this.power = power;
         this.yearOfIssue = yearOfIssue;
         this.fuelType = fuelType;
-        this.serviceDate = serviceDate;
+        this.lastServiceDate = lastServiceDate;
     }
 
     public int getCapacity() {
@@ -56,11 +56,11 @@ public class Locomotive extends NamedEntity {
         this.fuelType = fuelType;
     }
 
-    public Date getServiceDate() {
-        return serviceDate;
+    public Date getLastServiceDate() {
+        return lastServiceDate;
     }
 
-    public void setServiceDate(Date serviceDate) {
-        this.serviceDate = serviceDate;
+    public void setLastServiceDate(Date lastServiceDate) {
+        this.lastServiceDate = lastServiceDate;
     }
 }

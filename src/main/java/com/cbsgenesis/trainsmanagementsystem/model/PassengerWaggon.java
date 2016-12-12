@@ -3,7 +3,7 @@ package com.cbsgenesis.trainsmanagementsystem.model;
 /**
  * Simple JavaBean domain object that represents a Passenger Wagoon.
  *
- * @author Eugene Suleimanov
+ * @author @Eugeny Nenenko
  */
 
 public class PassengerWaggon extends Wagoon{
