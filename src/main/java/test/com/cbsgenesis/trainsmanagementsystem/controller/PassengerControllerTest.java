@@ -11,6 +11,6 @@ public class PassengerControllerTest {
     public static void main(String[] args) {
         PassengerController passengerController = new PassengerController();
 
-        System.out.println(passengerController.showAllPassengers());
+        System.out.println(passengerController.getAllEntities());
     }
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class PassengerController {
     private PassengerDAO passengerDAO = new PassengerDAO();
 
-    public ArrayList<Passenger> showAllPassengers() {
+    public ArrayList<Passenger> getAllEntities() {
         return passengerDAO.getAllEntities();
     }
 
