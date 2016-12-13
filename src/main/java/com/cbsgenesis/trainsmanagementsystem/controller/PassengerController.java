@@ -14,7 +14,7 @@ public class PassengerController {
     private PassengerDAO passengerDAO = new PassengerDAO();
 
     public ArrayList<Passenger> showAllPassengers() {
-        return passengerDAO.getAllEntitys();
+        return passengerDAO.getAllEntities();
     }
 
     public Passenger getEntityById(Long id){
