@@ -9,9 +9,7 @@ import java.util.Arrays;
  * Implementation of {@link GenericDAO} interface for class {@link Station}
  *
  * @author Eugene Suleimanov
- *         <p>
- *         <p>
- *         not over j.konoh
+ * @author Julia Konoh
  */
 public class StationDAO implements GenericDAO<Station> {
 
