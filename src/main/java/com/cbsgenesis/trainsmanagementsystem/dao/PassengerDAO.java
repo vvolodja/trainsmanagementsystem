@@ -3,6 +3,7 @@ package com.cbsgenesis.trainsmanagementsystem.dao;
 import com.cbsgenesis.trainsmanagementsystem.model.Passenger;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Implementation of {@link GenericDAO} interface for class {@link Passenger}.
@@ -110,5 +111,34 @@ public class PassengerDAO implements GenericDAO<Passenger> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<Passenger> getAllEntitys() {
+        ArrayList<Passenger> passengers = new ArrayList<>();
+
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
+
+                    Passenger passenger = new Passenger();
+
+                    passenger.setId(Long.parseLong(splitedLine[0]));
+                    passenger.setFirstName(splitedLine[1]);
+                    passenger.setLastName(splitedLine[2]);
+                    passenger.setTicketId(Long.parseLong(splitedLine[3]));
+
+                    passengers.add(passenger);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return passengers;
+
     }
 }

@@ -26,6 +26,8 @@ public class TicketDAOTest {
 
         ticketDAO.removeEntity(ticket);
 
+        System.out.println(ticketDAO.getAllEntitys());
+
 
     }
 

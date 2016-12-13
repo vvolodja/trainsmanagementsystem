@@ -6,6 +6,7 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
@@ -133,6 +134,46 @@ public class TicketDAO implements GenericDAO<Ticket> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public ArrayList<Ticket> getAllEntitys() {
+        ArrayList<Ticket> tickets = new ArrayList<>();
+
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+
+
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
+
+                    Ticket ticket = new Ticket();
+
+                    ticket.setId(Long.parseLong(splitedLine[0]));
+                    ticket.setFirstName(splitedLine[1]);
+                    ticket.setLastName(splitedLine[2]);
+                    ticket.setTypeOfWagoon(splitedLine[3]);
+                    ticket.setPlace(Integer.parseInt(splitedLine[4]));
+                    DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm", Locale.ENGLISH);
+                    ticket.setDepartureDate(dateFormat.parse(splitedLine[5]));
+                    ticket.setArriveDate(dateFormat.parse(splitedLine[6]));
+                    ticket.setBed(Boolean.parseBoolean(splitedLine[7]));
+                    ticket.setTea(Integer.parseInt(splitedLine[8]));
+                    ticket.setCoffee(Integer.parseInt(splitedLine[9]));
+                    ticket.setBaggage(Integer.parseInt(splitedLine[10]));
+
+                    tickets.add(ticket);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return tickets;
 
     }
 }
