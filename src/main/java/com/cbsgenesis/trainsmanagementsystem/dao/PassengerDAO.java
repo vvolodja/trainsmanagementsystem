@@ -25,7 +25,7 @@ public class PassengerDAO implements GenericDAO<Passenger> {
 
                     Long firstLong = Long.parseLong(splitedLine[0]);
 
-                    if (firstLong == id) {
+                    if (firstLong.equals(id)) {
                         passenger.setId(firstLong);
                         passenger.setFirstName(splitedLine[1]);
                         passenger.setLastName(splitedLine[2]);
@@ -41,17 +41,43 @@ public class PassengerDAO implements GenericDAO<Passenger> {
 
     @Override
     public void saveEntity(Passenger passenger) {
-        String passengerToString = passenger.getId() + "," +
-                passenger.getFirstName() + "," +
-                passenger.getLastName() + "," +
-                passenger.getTicketId() + "/";
+        Passenger existingPassenger = getEntityById(passenger.getId());
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write(passengerToString);
-        }catch (IOException e){
-            e.printStackTrace();
+        if (passenger.getId().equals(existingPassenger.getId())) {
+            System.err.println("Passenger with such id is already existing");
+        } else {
+            try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+                StringBuilder existingFile = new StringBuilder();
+                String read;
+
+                while ((read = reader.readLine()) != null) {
+                    existingFile.append(read);
+                }
+
+                String passengerToString = passenger.getId() + "," +
+                        passenger.getFirstName() + "," +
+                        passenger.getLastName() + "," +
+                        passenger.getTicketId() + "/";
+
+                String newFile;
+
+                if (existingFile.toString().equals("")) {
+                    newFile = existingFile.append(passengerToString).toString();
+                } else {
+                    newFile = existingFile.append("\n").append(passengerToString).toString();
+                }
+
+                try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                    writer.write(newFile);
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
     }
 
     @Override
@@ -72,7 +98,7 @@ public class PassengerDAO implements GenericDAO<Passenger> {
 
                     Long firstLong = Long.parseLong(splitedLine[0]);
 
-                    if (firstLong == passenger.getId()) {
+                    if (firstLong.equals(passenger.getId())) {
                         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                             writer.write("");
                         }catch (IOException e){
