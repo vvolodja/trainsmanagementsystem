@@ -16,13 +16,15 @@ public class PassengerDAOTest {
         PassengerDAO passengerDAO = new PassengerDAO();
         Passenger passenger = createPassenger();
 
-        passengerDAO.saveEntity(passenger);
+//        passengerDAO.saveEntity(passenger);
+//
+//        System.out.println(passengerDAO.getEntityById(1L));
+//
+//        updatePassenger(passengerDAO);
+//
+//        passengerDAO.removeEntity(passenger);
 
-        System.out.println(passengerDAO.getEntityById(1L));
-
-        updatePassenger(passengerDAO);
-
-        passengerDAO.removeEntity(passenger);
+        System.out.println(passengerDAO.getAllEntitys());
 
     }
 
