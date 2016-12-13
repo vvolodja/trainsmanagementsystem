@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author  Andrey Babenko
  */
 public class PassengerController {
-    PassengerDAO passengerDAO = new PassengerDAO();
+    private PassengerDAO passengerDAO = new PassengerDAO();
 
     public ArrayList<Passenger> showAllPassengers() {
         return passengerDAO.getAllEntitys();

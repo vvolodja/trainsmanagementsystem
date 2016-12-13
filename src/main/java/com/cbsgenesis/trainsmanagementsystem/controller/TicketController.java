@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author  Andrey Babenko
  */
 public class TicketController {
-    TicketDAO ticketDAO = new TicketDAO();
+    private TicketDAO ticketDAO = new TicketDAO();
 
     public Ticket getEntityById(Long id){
         return ticketDAO.getEntityById(id);
