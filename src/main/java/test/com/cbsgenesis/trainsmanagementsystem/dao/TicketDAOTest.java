@@ -3,10 +3,7 @@ package test.com.cbsgenesis.trainsmanagementsystem.dao;
 import com.cbsgenesis.trainsmanagementsystem.dao.TicketDAO;
 import com.cbsgenesis.trainsmanagementsystem.model.Ticket;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * Test class for {@link TicketDAO}
@@ -26,7 +23,7 @@ public class TicketDAOTest {
 
         ticketDAO.removeEntity(ticket);
 
-        System.out.println(ticketDAO.getAllEntitys());
+        System.out.println(ticketDAO.getAllEntities());
 
 
     }
