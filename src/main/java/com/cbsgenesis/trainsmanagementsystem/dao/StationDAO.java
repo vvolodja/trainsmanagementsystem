@@ -21,9 +21,9 @@ public class StationDAO implements GenericDAO<Station> {
     @Override
     public void saveEntity(Station station) {
         String stationToString = station.getId() + "," + station.getName() + "," + station.getDescription() + "/";
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/stations.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_production/stations.txt"))) {
             writer.write(stationToString);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
