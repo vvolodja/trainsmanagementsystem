@@ -113,7 +113,7 @@ public class PassengerDAO implements GenericDAO<Passenger> {
         }
     }
 
-    public ArrayList<Passenger> getAllEntitys() {
+    public ArrayList<Passenger> getAllEntities() {
         ArrayList<Passenger> passengers = new ArrayList<>();
 
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {

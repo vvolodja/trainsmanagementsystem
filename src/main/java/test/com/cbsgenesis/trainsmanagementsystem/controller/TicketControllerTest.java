@@ -11,6 +11,6 @@ public class TicketControllerTest {
     public static void main(String[] args) {
         TicketController ticketController = new TicketController();
 
-        System.out.println(ticketController.showAllTickets());
+        System.out.println(ticketController.getAllEntities());
     }
 }

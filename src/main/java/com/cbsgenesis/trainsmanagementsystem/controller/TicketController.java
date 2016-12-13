@@ -8,12 +8,28 @@ import java.util.ArrayList;
 /**
  * Controller for class {@link Ticket}
  *
- * @author  Andre Babenko
+ * @author  Andrey Babenko
  */
 public class TicketController {
-    TicketDAO ticketDAO = new TicketDAO();
+    private TicketDAO ticketDAO = new TicketDAO();
 
-    public ArrayList<Ticket> showAllTickets() {
-        return ticketDAO.getAllEntitys();
+    public Ticket getEntityById(Long id){
+        return ticketDAO.getEntityById(id);
+    }
+
+    public void saveEntity(Ticket ticket) {
+        ticketDAO.saveEntity(ticket);
+    }
+
+    public void updateEntity(Ticket ticket){
+        ticketDAO.updateEntity(ticket);
+    }
+
+    public void removeEntity(Ticket ticket) {
+        ticketDAO.removeEntity(ticket);
+    }
+
+    public ArrayList<Ticket> getAllEntities() {
+        return ticketDAO.getAllEntities();
     }
 }

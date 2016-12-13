@@ -2,9 +2,6 @@ package test.com.cbsgenesis.trainsmanagementsystem.dao;
 
 import com.cbsgenesis.trainsmanagementsystem.dao.PassengerDAO;
 import com.cbsgenesis.trainsmanagementsystem.model.Passenger;
-import com.cbsgenesis.trainsmanagementsystem.model.Ticket;
-
-import java.util.Date;
 
 /**
  * Test class for {@link PassengerDAO}
@@ -24,7 +21,7 @@ public class PassengerDAOTest {
 //
 //        passengerDAO.removeEntity(passenger);
 
-        System.out.println(passengerDAO.getAllEntitys());
+        System.out.println(passengerDAO.getAllEntities());
 
     }
 

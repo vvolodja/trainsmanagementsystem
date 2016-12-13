@@ -137,7 +137,7 @@ public class TicketDAO implements GenericDAO<Ticket> {
 
     }
 
-    public ArrayList<Ticket> getAllEntitys() {
+    public ArrayList<Ticket> getAllEntities() {
         ArrayList<Ticket> tickets = new ArrayList<>();
 
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
