@@ -26,7 +26,6 @@ public class StationDAO implements GenericDAO<Station> {
                 for (String line : splitedFile) {
                     String[] splitedLine = line.split(",");
                     Long firstLong = Long.parseLong(splitedLine[0]);
-
                     if (firstLong.equals(id)) {
 
 
