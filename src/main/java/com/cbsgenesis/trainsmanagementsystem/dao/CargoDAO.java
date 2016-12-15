@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class CargoDAO implements GenericDAO<Cargo> {
 
-    String filePath = "Users/beClever/IdeaProjects/TrainsManagementSystem/src/resources/database_test/cargo.txt";
+    String filePath = "C:\\Users\\Евгений\\IdeaProjects\\trainsmanagementsystem\\src\\resources\\database_test\\cargo.txt";
 
 
     @Override
