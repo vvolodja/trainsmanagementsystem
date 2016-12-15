@@ -14,7 +14,7 @@ public class FreightWagoon extends Wagoon{
         this.typeOfCargoForWagoon = typeOfCargoForWagoon;
     }
 
-    public FreightWagoon(String typeOfCargoForWagoon) {
+    public FreightWagoon() {
         this.typeOfCargoForWagoon = typeOfCargoForWagoon;
     }
 
