@@ -29,13 +29,13 @@ public class Ticket extends BaseEntity {
     public Ticket(String firstName,
                   String lastName,
                   String typeOfWagoon,
-                  int place,
+                  Integer place,
                   Date departureDate,
                   Date arriveDate,
                   boolean bed,
-                  int tea,
-                  int coffee,
-                  int baggage) {
+                  Integer tea,
+                  Integer coffee,
+                  Integer baggage) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.typeOfWagoon = typeOfWagoon;
@@ -72,11 +72,11 @@ public class Ticket extends BaseEntity {
         this.typeOfWagoon = typeOfWagoon;
     }
 
-    public int getPlace() {
+    public Integer getPlace() {
         return place;
     }
 
-    public void setPlace(int place) {
+    public void setPlace(Integer place) {
         this.place = place;
     }
 
@@ -104,27 +104,27 @@ public class Ticket extends BaseEntity {
         this.bed = bed;
     }
 
-    public int getTea() {
+    public Integer getTea() {
         return tea;
     }
 
-    public void setTea(int tea) {
+    public void setTea(Integer tea) {
         this.tea = tea;
     }
 
-    public int getCoffee() {
+    public Integer getCoffee() {
         return coffee;
     }
 
-    public void setCoffee(int coffee) {
+    public void setCoffee(Integer coffee) {
         this.coffee = coffee;
     }
 
-    public int getBaggage() {
+    public Integer getBaggage() {
         return baggage;
     }
 
-    public void setBaggage(int baggage) {
+    public void setBaggage(Integer baggage) {
         this.baggage = baggage;
     }
 
