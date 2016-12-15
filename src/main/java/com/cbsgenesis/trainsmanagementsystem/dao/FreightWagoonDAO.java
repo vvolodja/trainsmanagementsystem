@@ -91,4 +91,3 @@ public class FreightWagoonDAO implements GenericDAO<FreightWagoon> {
     }
 
 }
-

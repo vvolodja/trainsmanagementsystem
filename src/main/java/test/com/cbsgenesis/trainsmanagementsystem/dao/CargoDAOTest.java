@@ -4,6 +4,7 @@ import com.cbsgenesis.trainsmanagementsystem.dao.CargoDAO;
 import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 
 /**
+   @Eugeny Nenenko
  * Created by Java on 08.12.2016.
  */
 public class CargoDAOTest {
@@ -11,6 +12,7 @@ public class CargoDAOTest {
         CargoDAO cargoDAO=new CargoDAO();
 
         Cargo cargo =new Cargo();
+
         cargo.setId(1l);
         cargo.setType("Type of cargo");
         cargo.setVolume(50);

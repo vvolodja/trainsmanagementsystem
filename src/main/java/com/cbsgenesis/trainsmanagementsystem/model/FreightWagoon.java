@@ -1,11 +1,12 @@
 package com.cbsgenesis.trainsmanagementsystem.model;
 
 /**
- * Simple JavaBean domain object that represents a freight Waggon.
+ * Simple JavaBean domain object that represents a freight Wagoon.
  *
- * @author Eugene Suleimanov
+ * @author @Eugeny Nenenko
  */
 public class FreightWagoon extends Wagoon{
+
     private String typeOfCargoForWagoon;
     private int dimension;
 
@@ -36,13 +37,12 @@ public class FreightWagoon extends Wagoon{
 
     public void setDimension(int dimension) {
         this.dimension = dimension;
-    }
 
-    @Override
-    public String toString() {
-        return "FreightWagoon{" +
-                "typeOfCargoForWagoon='" + typeOfCargoForWagoon + '\'' +
-                ", dimension=" + dimension +
-                '}';
+
+        @Override
+        public String toString () {
+            return "FreightWagoon{" +
+                    "typeOfCargoForWagoon='" + typeOfCargoForWagoon +'\'' +
+                    ", dimension=" + dimension +'}';
+        }
     }
-}

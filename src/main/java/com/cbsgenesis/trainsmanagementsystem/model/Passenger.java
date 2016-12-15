@@ -5,7 +5,7 @@ import com.cbsgenesis.trainsmanagementsystem.dao.TicketDAO;
 /**
  * Simple class that represents passenger
  *
- * @author Andrey Babenko on 12/1/16.
+ * @author Andrey Babenko
  */
 public class Passenger extends BaseEntity {
     private String firstName;
@@ -48,7 +48,8 @@ public class Passenger extends BaseEntity {
     @Override
     public String toString() {
         return "Passenger{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + super.getId() +
+                ",firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", ticketId=" + ticketId +
                 '}';

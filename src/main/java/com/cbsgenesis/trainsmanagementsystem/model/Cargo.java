@@ -10,6 +10,26 @@ public class Cargo extends NamedEntity {
     private int dimension;
     private int quantityOfCars;
 
+    public Cargo() {
+    }
+
+    public Cargo(String type, int volume, int weight, int dimension, int quantityOfCars) {
+        this.type = type;
+        this.volume = volume;
+        this.weight = weight;
+        this.dimension = dimension;
+        this.quantityOfCars = quantityOfCars;
+    }
+
+    public Cargo(String name, String type, int volume, int weight, int dimension, int quantityOfCars) {
+        super(name);
+        this.type = type;
+        this.volume = volume;
+        this.weight = weight;
+        this.dimension = dimension;
+        this.quantityOfCars = quantityOfCars;
+    }
+
     public String getType() {
         return type;
     }
