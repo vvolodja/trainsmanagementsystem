@@ -1,7 +1,97 @@
 package com.cbsgenesis.trainsmanagementsystem.dao;
 
+
+import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
+import com.cbsgenesis.trainsmanagementsystem.model.PassengerWaggon;
+
+import java.io.*;
+
 /**
  * Created by Java on 01.12.2016.
+ *
+ * @author Julia Konoh
+ *
  */
-public class PassengerWaggonDAO {
+public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
+
+    String filePath = "src/resources/database_test/passengers_wagoon.txt";
+
+
+    @Override
+    public PassengerWaggon getEntityById(Long id) {
+        PassengerWaggon passengerWaggon = new PassengerWaggon();
+
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
+
+                    Long firstLong = Long.parseLong(splitedLine[0]);
+
+                    if (firstLong.equals(id)) {
+                        passengerWaggon.setId(firstLong);
+                        passengerWaggon.setTypeOfComfort(splitedLine[1]);
+                        passengerWaggon.setNumberOfSeats(Integer.parseInt(splitedLine[2]));
+
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return passengerWaggon;
+    }
+   @Override
+    public void saveEntity(PassengerWaggon passengerWaggon) {
+        String passengerWaggonToString = passengerWaggon.getId() + "," +
+                passengerWaggon.getTypeOfComfort() + "," +
+                passengerWaggon.getNumberOfSeats();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(passengerWaggonToString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateEntity(PassengerWaggon passengerWaggon) {
+        removeEntity(passengerWaggon);
+        saveEntity(passengerWaggon);
+    }
+
+    @Override
+    public void removeEntity(PassengerWaggon passngerWaggon) {try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        String read = null;
+        while ((read = reader.readLine()) != null) {
+            String[] splitedFile = read.split("/");
+            for (String line : splitedFile) {
+                String[] splitedLine = line.split(",");
+
+                Long firstLong = Long.parseLong(splitedLine[0]);
+
+                if (firstLong == passngerWaggon.getId()) {
+                    try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                        writer.write("");
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
+    }
+
 }
+
+
+
+
+
+

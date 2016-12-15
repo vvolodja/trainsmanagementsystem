@@ -8,7 +8,10 @@ package com.cbsgenesis.trainsmanagementsystem.model;
 
 public class PassengerWaggon extends Wagoon{
     private String typeOfComfort;
-    private int numberOfSeats;
+    private Integer numberOfSeats;
+
+    public PassengerWaggon() {
+    }
 
     public PassengerWaggon(int weight) {
         super(weight);
@@ -31,11 +34,11 @@ public class PassengerWaggon extends Wagoon{
         this.typeOfComfort = typeOfComfort;
     }
 
-    public int getNumberOfSeats() {
+    public Integer getNumberOfSeats() {
         return numberOfSeats;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
+    public void setNumberOfSeats(Integer numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
 
