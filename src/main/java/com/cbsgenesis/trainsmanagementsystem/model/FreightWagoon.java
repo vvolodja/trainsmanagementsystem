@@ -6,43 +6,43 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  * @author @Eugeny Nenenko
  */
 public class FreightWagoon extends Wagoon{
-    private String typeOfCargoWagoon;
-    private int dimensionOfWagoon;
+
+    private String typeOfCargoForWagoon;
+    private int dimension;
+
+    public FreightWagoon(int weight, String typeOfCargoForWagoon) {
+        super(weight);
+        this.typeOfCargoForWagoon = typeOfCargoForWagoon;
+    }
+
+    public FreightWagoon() {
+        this.typeOfCargoForWagoon = typeOfCargoForWagoon;
+    }
 
     public FreightWagoon(int weight) {
         super(weight);
     }
 
-    public FreightWagoon(int weight, String typeOfCargoWagoon) {
-        super(weight);
-        this.typeOfCargoWagoon = typeOfCargoWagoon;
+    public String getTypeOfCargoForWagoon() {
+        return typeOfCargoForWagoon;
     }
 
-    public FreightWagoon(String typeOfCargoWagoon) {
-        this.typeOfCargoWagoon = typeOfCargoWagoon;
+    public void setTypeOfCargoForWagoon(String typeOfCargoForWagoon) {
+        this.typeOfCargoForWagoon = typeOfCargoForWagoon;
     }
 
-    public String getTypeOfCargoWagoon() {
-        return typeOfCargoWagoon;
+    public int getDimension() {
+        return dimension;
     }
 
-    public void setTypeOfCargoWagoon(String typeOfCargoWagoon) {
-        this.typeOfCargoWagoon = typeOfCargoWagoon;
-    }
+    public void setDimension(int dimension) {
+        this.dimension = dimension;
 
-    public int getDimensionOfWagoon() {
-        return dimensionOfWagoon;
-    }
 
-    public void setDimensionOfWagoon(int dimensionOfWagoon) {
-        this.dimensionOfWagoon = dimensionOfWagoon;
+        @Override
+        public String toString () {
+            return "FreightWagoon{" +
+                    "typeOfCargoForWagoon='" + typeOfCargoForWagoon +'\'' +
+                    ", dimension=" + dimension +'}';
+        }
     }
-
-    @Override
-    public String toString() {
-        return "FreightWagoon{" +
-                "typeOfCargoWagoon='" + typeOfCargoWagoon + '\'' +
-                ", dimensionOfWagoon=" + dimensionOfWagoon +
-                '}';
-    }
-}
