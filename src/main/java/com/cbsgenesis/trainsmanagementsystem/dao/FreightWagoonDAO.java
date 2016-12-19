@@ -1,7 +1,6 @@
 package com.cbsgenesis.trainsmanagementsystem.dao;
 
 import com.cbsgenesis.trainsmanagementsystem.model.FreightWagoon;
-import com.cbsgenesis.trainsmanagementsystem.model.Wagoon;
 
 import java.io.*;
 

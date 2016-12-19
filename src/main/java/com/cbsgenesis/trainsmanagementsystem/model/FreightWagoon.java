@@ -5,7 +5,7 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  *
  * @author @Eugeny Nenenko
  */
-public class FreightWagoon extends Wagoon{
+public class FreightWagoon extends Wagoon {
 
     private String typeOfCargoForWagoon;
     private int dimension;
@@ -39,10 +39,13 @@ public class FreightWagoon extends Wagoon{
         this.dimension = dimension;
 
 
-        @Override
-        public String toString () {
-            return "FreightWagoon{" +
-                    "typeOfCargoForWagoon='" + typeOfCargoForWagoon +'\'' +
-                    ", dimension=" + dimension +'}';
-        }
     }
+
+    @Override
+    public String toString() {
+        return "FreightWagoon{" +
+                "typeOfCargoForWagoon='" + typeOfCargoForWagoon + '\'' +
+                ", dimension=" + dimension +
+                '}';
+    }
+}
