@@ -7,36 +7,24 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  */
 
 public class PassengerWaggon extends Wagoon{
-<<<<<<< HEAD
     private String typeOfWagoonComfort;
     int quantityOfSeats;
-
-
-    public PassengerWaggon(int weight, String typeOfWagoonComfort) {
-        super(weight);
-        this.typeOfWagoonComfort = typeOfWagoonComfort;
-    }
-
-    public PassengerWaggon(String typeOfWagoonComfort) {
-        this.typeOfWagoonComfort = typeOfWagoonComfort;
-    }
-=======
-    private String typeOfComfort;
-<<<<<<< HEAD
-    private Integer numberOfSeats;
-
-    public PassengerWaggon() {
-    }
-=======
-    private int numberOfSeats;
->>>>>>> 43224d905f7024aa96b4da30db922052d1f2e031
->>>>>>> master
 
     public PassengerWaggon(int weight) {
         super(weight);
     }
 
-<<<<<<< HEAD
+    public PassengerWaggon(int weight, String typeOfWagoonComfort, int quantityOfSeats) {
+        super(weight);
+        this.typeOfWagoonComfort = typeOfWagoonComfort;
+        this.quantityOfSeats = quantityOfSeats;
+    }
+
+    public PassengerWaggon(String typeOfWagoonComfort, int quantityOfSeats) {
+        this.typeOfWagoonComfort = typeOfWagoonComfort;
+        this.quantityOfSeats = quantityOfSeats;
+    }
+
     public String getTypeOfWagoonComfort() {
         return typeOfWagoonComfort;
     }
@@ -51,43 +39,13 @@ public class PassengerWaggon extends Wagoon{
 
     public void setQuantityOfSeats(int quantityOfSeats) {
         this.quantityOfSeats = quantityOfSeats;
-=======
-    public PassengerWaggon(int weight, String typeOfComfort) {
-        super(weight);
-        this.typeOfComfort = typeOfComfort;
-    }
-
-    public PassengerWaggon(String typeOfComfort) {
-        this.typeOfComfort = typeOfComfort;
-    }
-
-    public String getTypeOfComfort() {
-        return typeOfComfort;
-    }
-
-    public void setTypeOfComfort(String typeOfComfort) {
-        this.typeOfComfort = typeOfComfort;
-    }
-
-    public Integer getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
-    public void setNumberOfSeats(Integer numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
->>>>>>> 43224d905f7024aa96b4da30db922052d1f2e031
     }
 
     @Override
     public String toString() {
         return "PassengerWaggon{" +
-<<<<<<< HEAD
                 "typeOfWagoonComfort='" + typeOfWagoonComfort + '\'' +
                 ", quantityOfSeats=" + quantityOfSeats +
-=======
-                "typeOfComfort='" + typeOfComfort + '\'' +
-                ", numberOfSeats=" + numberOfSeats +
->>>>>>> 43224d905f7024aa96b4da30db922052d1f2e031
                 '}';
     }
 }
