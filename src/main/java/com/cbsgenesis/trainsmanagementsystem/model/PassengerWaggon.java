@@ -20,7 +20,7 @@ public class PassengerWaggon extends Wagoon{
         this.quantityOfSeats = quantityOfSeats;
     }
 
-    public PassengerWaggon(String typeOfWagoonComfort, int quantityOfSeats) {
+    public PassengerWaggon() {
         this.typeOfWagoonComfort = typeOfWagoonComfort;
         this.quantityOfSeats = quantityOfSeats;
     }

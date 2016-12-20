@@ -32,8 +32,8 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
 
                     if (firstLong.equals(id)) {
                         passengerWaggon.setId(firstLong);
-                        passengerWaggon.setTypeOfComfort(splitedLine[1]);
-                        passengerWaggon.setNumberOfSeats(Integer.parseInt(splitedLine[2]));
+                        passengerWaggon.setTypeOfWagoonComfort(splitedLine[1]);
+                        passengerWaggon.setQuantityOfSeats(Integer.parseInt(splitedLine[2]));
 
                     }
                 }
@@ -47,8 +47,8 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
    @Override
     public void saveEntity(PassengerWaggon passengerWaggon) {
         String passengerWaggonToString = passengerWaggon.getId() + "," +
-                passengerWaggon.getTypeOfComfort() + "," +
-                passengerWaggon.getNumberOfSeats();
+                passengerWaggon.getTypeOfWagoonComfort() + "," +
+                passengerWaggon.getQuantityOfSeats();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(passengerWaggonToString);

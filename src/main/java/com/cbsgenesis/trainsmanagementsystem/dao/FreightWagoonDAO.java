@@ -4,6 +4,7 @@ import com.cbsgenesis.trainsmanagementsystem.model.FreightWagoon;
 import com.cbsgenesis.trainsmanagementsystem.model.Wagoon;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by Java on 15.12.2016.
@@ -90,4 +91,7 @@ public class FreightWagoonDAO implements GenericDAO<FreightWagoon> {
 
     }
 
+    public ArrayList<FreightWagoon> getAllEntities() {
+        return null;
+    }
 }
