@@ -10,8 +10,19 @@ public class PassengerWaggon extends Wagoon{
     private String typeOfWagoonComfort;
     int quantityOfSeats;
 
+
+    public PassengerWaggon(int weight, String typeOfWagoonComfort, int quantityOfSeats) {
+        super(weight);
+        this.typeOfWagoonComfort = typeOfWagoonComfort;
+        this.quantityOfSeats = quantityOfSeats;
+    }
+
     public PassengerWaggon(int weight) {
         super(weight);
+    }
+
+    public PassengerWaggon() {
+
     }
 
     public String getTypeOfWagoonComfort() {
@@ -28,16 +39,6 @@ public class PassengerWaggon extends Wagoon{
 
     public void setQuantityOfSeats(int quantityOfSeats) {
         this.quantityOfSeats = quantityOfSeats;
-    }
-
-    public PassengerWaggon(int weight, String typeOfWagoonComfort) {
-
-        super(weight);
-        this.typeOfWagoonComfort = typeOfWagoonComfort;
-    }
-
-    public PassengerWaggon(String typeOfWagoonComfort) {
-        this.typeOfWagoonComfort = typeOfWagoonComfort;
     }
 
     @Override

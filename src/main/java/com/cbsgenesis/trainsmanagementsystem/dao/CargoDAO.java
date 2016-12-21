@@ -3,6 +3,7 @@ package com.cbsgenesis.trainsmanagementsystem.dao;
 import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 /**
@@ -59,20 +60,18 @@ public class CargoDAO implements GenericDAO<Cargo> {
             e.printStackTrace();
 
         }
-
     }
 
     @Override
     public void updateEntity(Cargo cargo) {
         removeEntity(cargo);
-
         saveEntity(cargo);
 
     }
 
 
     @Override
-    public void removeEntity(Cargo cargo) {
+    public ArrayList<Cargo> removeEntity(Cargo cargo) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
             while ((read = reader.readLine()) != null) {
@@ -94,12 +93,14 @@ public class CargoDAO implements GenericDAO<Cargo> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
+
 
     public ArrayList<Cargo> getAllEntities() {
         ArrayList<Cargo> cargos = new ArrayList<>();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 
             String read = null;
             while ((read = reader.readLine()) != null) {
@@ -127,3 +128,5 @@ public class CargoDAO implements GenericDAO<Cargo> {
 
     }
 }
+
+
