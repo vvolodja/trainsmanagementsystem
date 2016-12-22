@@ -37,11 +37,4 @@ public class PassengerWagoonDAOTest {
         //passengerWaggonDAO.removeEntity(passengerWaggon);
 
     }
-
-
-
-
-
-
-
 }

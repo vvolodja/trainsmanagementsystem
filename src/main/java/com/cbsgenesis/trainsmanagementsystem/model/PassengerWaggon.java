@@ -10,6 +10,9 @@ public class PassengerWaggon extends Wagoon{
     private String typeOfWagoonComfort;
     int quantityOfSeats;
 
+    public PassengerWaggon(int weight) {
+        super(weight);
+    }
 
     public PassengerWaggon(int weight, String typeOfWagoonComfort, int quantityOfSeats) {
         super(weight);
@@ -17,8 +20,9 @@ public class PassengerWaggon extends Wagoon{
         this.quantityOfSeats = quantityOfSeats;
     }
 
-    public PassengerWaggon(int weight) {
-        super(weight);
+    public PassengerWaggon(String typeOfWagoonComfort, int quantityOfSeats) {
+        this.typeOfWagoonComfort = typeOfWagoonComfort;
+        this.quantityOfSeats = quantityOfSeats;
     }
 
     public PassengerWaggon() {

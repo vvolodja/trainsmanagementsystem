@@ -9,9 +9,26 @@ import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
  */
 public class CargoDAOTest {
     public static void main(String[] args) {
-        CargoDAO cargoDAO=new CargoDAO();
+        CargoDAO cargoDAO = new CargoDAO();
 
-        Cargo cargo =new Cargo();
+        Cargo cargo =creteCargo();
+
+        cargoDAO.saveEntity(cargo);
+
+        System.out.println(cargoDAO.getEntityById(1L));
+
+        updateCargo(cargoDAO);
+
+        cargoDAO.removeEntity(cargo);
+
+        System.out.println(cargoDAO.getAllEntities());
+
+    }
+
+
+
+    private static Cargo creteCargo() {
+        Cargo cargo = new Cargo();
 
         cargo.setId(1l);
         cargo.setType("Type of cargo");
@@ -20,7 +37,23 @@ public class CargoDAOTest {
         cargo.setDimension(300);
         cargo.setQuantityOfCars(10);
 
-        cargoDAO.saveEntity(cargo);
+        return cargo;
+    }
+
+    private static void updateCargo(CargoDAO cargoDAO){
+
+        Cargo cargo = new Cargo();
+
+        cargo.setId(1L);
+        cargo.setType("Quilid cargo");
+        cargo.setWeight(111);
+        cargo.setDimension(5544);
+        cargo.setQuantityOfCars(3322);
+
+        cargoDAO.updateEntity(cargo);
+
 
     }
+
 }
+

@@ -92,4 +92,33 @@ public class FreightWagoonDAO implements GenericDAO<FreightWagoon> {
         return null;
     }
 
+    public ArrayList<FreightWagoon> getAllEntities() {
+        ArrayList<FreightWagoon> freifgtWagoons = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
+
+                    FreightWagoon freightWagoon = new FreightWagoon();
+
+                    freightWagoon.setId(Long.parseLong(splitedLine[0]));
+                    freightWagoon.setTypeOfCargoForWagoon(splitedLine[1]);
+                    freightWagoon.setDimension(Integer.parseInt(splitedLine[2]));
+
+
+                    freifgtWagoons.add(freightWagoon);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return freifgtWagoons;
+
+    }
 }
+
