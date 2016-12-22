@@ -17,15 +17,14 @@ public class LocomotiveDAOTest {
         Locomotive locomotive = createLocomotive();
 
 
-        locomotiveDAO.saveEntity(locomotive);
+        //locomotiveDAO.saveEntity(locomotive);
 
-        //updateLocomotive(locomotiveDAO);
+        updateLocomotive(locomotiveDAO);
 
         // Get Passenger By Id
         //System.out.println(locomotiveDAO.getEntityById(1L));
 
         //locomotiveDAO.updateEntity(locomotive);
-
         //locomotiveDAO.removeEntity(locomotive);
 
         System.out.println(locomotiveDAO.getAllEntitys());

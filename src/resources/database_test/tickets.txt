@@ -1,2 +1,0 @@
-1,Andrey,Babenko,VIP,12,Sun Jun 10 12:00:00 EEST 3917,Wed Jun 20 09:30:00 EEST 3917,true,1,0,10/
-2,Eugene,Suleimanov,VIP,10,Sun Jun 10 12:00:00 EEST 3917,Wed Jun 20 09:30:00 EEST 3917,true,1,0,10/
