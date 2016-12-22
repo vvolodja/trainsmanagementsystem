@@ -67,29 +67,53 @@ public class LocomotiveView {
                 locomotive.setId(tempID);
             }
 
+            scanner = new Scanner(System.in);
+
 
         }
-        while (locomotive.getName().isEmpty() || locomotive.getName() == null){
+        while (locomotive.getName().isEmpty() || locomotive.getName() == null) {
             System.out.println("Enter the name of the locomotive");
             locomotive.setName(scanner.nextLine());
         }
 
-        while (locomotive.getCapacity() == 0){
+        while (locomotive.getCapacity() == 0) {
             System.out.println("Enter the locomotive capacity");
             locomotive.setCapacity(scanner.nextInt());
         }
-        while (locomotive.getPower()==0){
+        while (locomotive.getPower() == 0) {
             System.out.println("Enter the locomotive power");
             locomotive.setPower(scanner.nextInt());
         }
-        while (locomotive.getYearOfIssue()==0){
-            System.out.println("Enter the year when the locomotive was released");
+        while (locomotive.getYearOfIssue() == 0) {
+            System.out.println("Enter the year when the locomotive was released (1955-2016)");
             locomotive.setYearOfIssue(scanner.nextInt());
-            if()
+            if (locomotive.getYearOfIssue() instanceof Integer || locomotive.getYearOfIssue() > 1955) {
+                continue;
+            } else {
+                locomotive.setYearOfIssue(0);
+                System.out.println("This year the train removed from operating or do not exist. Enter again.");
+            }
+        }
+        while (locomotive.getFuelType().isEmpty() || locomotive.getFuelType() == null) {
+            System.out.println("Enter the type of fuel(DIESEL, GAZ, ELECTRICITY)");
+            String tipeOfFuel = scanner.nextLine();
+            if (tipeOfFuel.equalsIgnoreCase("DIESEL")) {
+                locomotive.setFuelType(tipeOfFuel);
+            } else if (tipeOfFuel.equalsIgnoreCase("GAZ")) {
+                locomotive.setFuelType(tipeOfFuel);
+            } else if (tipeOfFuel.equalsIgnoreCase("ELECTRICITY")) {
+                locomotive.setFuelType(tipeOfFuel);
+            }else
+                System.out.println("Do not put right type of fuel, please enter one of the three fuels (DIESEL, GAZ, ELECTRICITY)");
         }
 
-
+        while (locomotive.getLastServiceDate()==null){
+            System.out.println("Enter the date of the last service");
+            locomotive.setLastServiceDate(dateFormat.parse(scanner.nextLine()));
+        }
     }
+
+
 
 
 }
