@@ -25,6 +25,10 @@ public class PassengerWaggon extends Wagoon{
         this.quantityOfSeats = quantityOfSeats;
     }
 
+    public PassengerWaggon() {
+
+    }
+
     public String getTypeOfWagoonComfort() {
         return typeOfWagoonComfort;
     }

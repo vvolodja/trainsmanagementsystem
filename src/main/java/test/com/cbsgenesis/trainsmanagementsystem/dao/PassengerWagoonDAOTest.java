@@ -20,8 +20,8 @@ public class PassengerWagoonDAOTest {
         PassengerWaggon passengerWaggon = new PassengerWaggon();
 
         passengerWaggon.setId(1L);
-        passengerWaggon.setTypeOfComfort(" Level of comfort");
-        passengerWaggon.setNumberOfSeats(54);
+        passengerWaggon.setTypeOfWagoonComfort(" Level of comfort");
+        passengerWaggon.setQuantityOfSeats(54);
 
 
         //passengerWaggonDAO.saveEntity(passengerWaggon);
@@ -29,19 +29,12 @@ public class PassengerWagoonDAOTest {
         // System.out.println(passengerWaggonDAO.getEntityById(1L));
 
          passengerWaggon.setId(2L);
-         passengerWaggon.setTypeOfComfort("Coupe class");
-         passengerWaggon.setNumberOfSeats(36);
+         passengerWaggon.setTypeOfWagoonComfort("Coupe class");
+         passengerWaggon.setQuantityOfSeats(36);
          passengerWaggonDAO.updateEntity(passengerWaggon);
 
 
         //passengerWaggonDAO.removeEntity(passengerWaggon);
 
     }
-
-
-
-
-
-
-
 }

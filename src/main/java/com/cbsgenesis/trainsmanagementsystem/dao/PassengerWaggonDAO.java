@@ -5,6 +5,7 @@ import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 import com.cbsgenesis.trainsmanagementsystem.model.PassengerWaggon;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by Java on 01.12.2016.
@@ -32,8 +33,8 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
 
                     if (firstLong.equals(id)) {
                         passengerWaggon.setId(firstLong);
-                        passengerWaggon.setTypeOfComfort(splitedLine[1]);
-                        passengerWaggon.setNumberOfSeats(Integer.parseInt(splitedLine[2]));
+                        passengerWaggon.setTypeOfWagoonComfort(splitedLine[1]);
+                        passengerWaggon.setQuantityOfSeats(Integer.parseInt(splitedLine[2]));
 
                     }
                 }
@@ -47,8 +48,8 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
    @Override
     public void saveEntity(PassengerWaggon passengerWaggon) {
         String passengerWaggonToString = passengerWaggon.getId() + "," +
-                passengerWaggon.getTypeOfComfort() + "," +
-                passengerWaggon.getNumberOfSeats();
+                passengerWaggon.getTypeOfWagoonComfort() + "," +
+                passengerWaggon.getQuantityOfSeats();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(passengerWaggonToString);
@@ -64,7 +65,7 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
     }
 
     @Override
-    public void removeEntity(PassengerWaggon passngerWaggon) {try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+    public ArrayList<Cargo> removeEntity(PassengerWaggon passngerWaggon) {try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
         String read = null;
         while ((read = reader.readLine()) != null) {
             String[] splitedFile = read.split("/");
@@ -86,6 +87,7 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
         e.printStackTrace();
     }
 
+        return null;
     }
 
 }

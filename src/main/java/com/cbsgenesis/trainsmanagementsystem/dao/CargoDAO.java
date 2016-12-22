@@ -36,15 +36,12 @@ public class CargoDAO implements GenericDAO<Cargo> {
                         cargo.setDimension(Integer.parseInt(splitedLine[4]));
                         cargo.setQuantityOfCars((Integer.parseInt(splitedLine[5])));
                     }
-
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
         return cargo;
-
     }
 
     @Override
@@ -62,46 +59,47 @@ public class CargoDAO implements GenericDAO<Cargo> {
             e.printStackTrace();
 
         }
-
     }
 
     @Override
     public void updateEntity(Cargo cargo) {
         removeEntity(cargo);
-
         saveEntity(cargo);
 
     }
 
+
     @Override
-    public void removeEntity(Cargo cargo) {try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-        String read = null;
-        while ((read = reader.readLine()) != null) {
-            String[] splitedFile = read.split("/");
-            for (String line : splitedFile) {
-                String[] splitedLine = line.split(",");
+    public  ArrayList<Cargo> removeEntity(Cargo cargo) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
 
-                Long firstLong = Long.parseLong(splitedLine[0]);
+                    Long firstLong = Long.parseLong(splitedLine[0]);
 
-                if (firstLong == cargo.getId()) {
-                    try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-                        writer.write("");
-                    }catch (IOException e){
-                        e.printStackTrace();
+                    if (firstLong == cargo.getId()) {
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                            writer.write("");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    } catch (IOException e) {
-        e.printStackTrace();
+        return null;
     }
 
-    }
 
     public ArrayList<Cargo> getAllEntities() {
         ArrayList<Cargo> cargos = new ArrayList<>();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 
             String read = null;
             while ((read = reader.readLine()) != null) {
@@ -126,6 +124,8 @@ public class CargoDAO implements GenericDAO<Cargo> {
         }
 
         return cargos;
-
     }
+
 }
+
+

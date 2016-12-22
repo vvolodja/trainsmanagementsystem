@@ -1,1 +1,1 @@
-1,Type of Freight for Wagoon,555,444/
+1,Type of Freight for Wagon: Liquid cargo,777,888/
