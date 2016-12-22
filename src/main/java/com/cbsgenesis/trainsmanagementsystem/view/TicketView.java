@@ -1,6 +1,5 @@
 package com.cbsgenesis.trainsmanagementsystem.view;
 
-import com.cbsgenesis.trainsmanagementsystem.controller.PassengerController;
 import com.cbsgenesis.trainsmanagementsystem.controller.TicketController;
 import com.cbsgenesis.trainsmanagementsystem.model.Ticket;
 
@@ -12,7 +11,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 /**
- * Created by andreyb1990 on 12/22/16.
+ * @author Andrey Babenko
  */
 public class TicketView {
     TicketController ticketController = new TicketController();
@@ -190,7 +189,6 @@ public class TicketView {
 
     public void showTicketInfo(Ticket ticket){
         System.out.println("=== TICKET #" + ticket.getId() + " ===\n");
-        System.out.println("Ticket ID: " + ticket.getId());
         System.out.println("First name: " + ticket.getFirstName());
         System.out.println("Last name: " + ticket.getLastName());
         System.out.println("Type of wagoon: " + ticket.getTypeOfWagoon());

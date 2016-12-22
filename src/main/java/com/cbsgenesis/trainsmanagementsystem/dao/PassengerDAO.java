@@ -56,17 +56,25 @@ public class PassengerDAO implements GenericDAO<Passenger> {
                     existingFile.append(read);
                 }
 
+                String tempFileData = existingFile.toString();
+                String [] tempFileDataList = tempFileData.split("/");
+
                 String passengerToString = passenger.getId() + "," +
                         passenger.getFirstName() + "," +
                         passenger.getLastName() + "," +
                         passenger.getTicketId() + "/";
 
-                String newFile;
+                String newFile = "";
 
                 if (existingFile.toString().equals("")) {
                     newFile = existingFile.append(passengerToString).toString();
                 } else {
-                    newFile = existingFile.append("\n").append(passengerToString).toString();
+                    for (int i = 0; i < tempFileDataList.length; i++) {
+                        newFile += tempFileDataList[i];
+                        newFile += "/";
+                        newFile += "\n";
+                    }
+                    newFile += passengerToString;
                 }
 
                 try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
