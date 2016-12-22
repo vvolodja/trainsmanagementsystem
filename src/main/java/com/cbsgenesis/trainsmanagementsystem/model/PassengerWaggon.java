@@ -7,43 +7,49 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  */
 
 public class PassengerWaggon extends Wagoon{
-    private String typeOfComfort;
-    private int numberOfSeats;
+    private String typeOfWagoonComfort;
+    int quantityOfSeats;
 
     public PassengerWaggon(int weight) {
         super(weight);
     }
 
-    public PassengerWaggon(int weight, String typeOfComfort) {
+    public PassengerWaggon(int weight, String typeOfWagoonComfort, int quantityOfSeats) {
         super(weight);
-        this.typeOfComfort = typeOfComfort;
+        this.typeOfWagoonComfort = typeOfWagoonComfort;
+        this.quantityOfSeats = quantityOfSeats;
     }
 
-    public PassengerWaggon(String typeOfComfort) {
-        this.typeOfComfort = typeOfComfort;
+    public PassengerWaggon(String typeOfWagoonComfort, int quantityOfSeats) {
+        this.typeOfWagoonComfort = typeOfWagoonComfort;
+        this.quantityOfSeats = quantityOfSeats;
     }
 
-    public String getTypeOfComfort() {
-        return typeOfComfort;
+    public PassengerWaggon() {
+
     }
 
-    public void setTypeOfComfort(String typeOfComfort) {
-        this.typeOfComfort = typeOfComfort;
+    public String getTypeOfWagoonComfort() {
+        return typeOfWagoonComfort;
     }
 
-    public int getNumberOfSeats() {
-        return numberOfSeats;
+    public void setTypeOfWagoonComfort(String typeOfWagoonComfort) {
+        this.typeOfWagoonComfort = typeOfWagoonComfort;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public int getQuantityOfSeats() {
+        return quantityOfSeats;
+    }
+
+    public void setQuantityOfSeats(int quantityOfSeats) {
+        this.quantityOfSeats = quantityOfSeats;
     }
 
     @Override
     public String toString() {
         return "PassengerWaggon{" +
-                "typeOfComfort='" + typeOfComfort + '\'' +
-                ", numberOfSeats=" + numberOfSeats +
+                "typeOfWagoonComfort='" + typeOfWagoonComfort + '\'' +
+                ", quantityOfSeats=" + quantityOfSeats +
                 '}';
     }
 }
