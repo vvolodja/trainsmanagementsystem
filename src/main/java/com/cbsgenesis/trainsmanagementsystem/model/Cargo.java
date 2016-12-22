@@ -5,24 +5,15 @@ package com.cbsgenesis.trainsmanagementsystem.model;
  */
 public class Cargo extends NamedEntity {
     private String type;
-    private int volume;
-    private int weight;
-    private int dimension;
-    private int quantityOfCars;
+    private Integer volume;
+    private Integer weight;
+    private Integer dimension;
+    private Integer quantityOfCars;
 
     public Cargo() {
     }
 
-    public Cargo(String type, int volume, int weight, int dimension, int quantityOfCars) {
-        this.type = type;
-        this.volume = volume;
-        this.weight = weight;
-        this.dimension = dimension;
-        this.quantityOfCars = quantityOfCars;
-    }
-
-    public Cargo(String name, String type, int volume, int weight, int dimension, int quantityOfCars) {
-        super(name);
+    public Cargo(String type, Integer volume, Integer weight, Integer dimension, Integer quantityOfCars) {
         this.type = type;
         this.volume = volume;
         this.weight = weight;
@@ -38,35 +29,35 @@ public class Cargo extends NamedEntity {
         this.type = type;
     }
 
-    public int getVolume() {
+    public Integer getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(Integer volume) {
         this.volume = volume;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 
-    public int getDimension() {
+    public Integer getDimension() {
         return dimension;
     }
 
-    public void setDimension(int dimension) {
+    public void setDimension(Integer dimension) {
         this.dimension = dimension;
     }
 
-    public int getQuantityOfCars() {
+    public Integer getQuantityOfCars() {
         return quantityOfCars;
     }
 
-    public void setQuantityOfCars(int quantityOfCars) {
+    public void setQuantityOfCars(Integer quantityOfCars) {
         this.quantityOfCars = quantityOfCars;
     }
 
