@@ -15,15 +15,15 @@ public class TicketDAOTest {
         TicketDAO ticketDAO = new TicketDAO();
         Ticket ticket = createTicket();
 
-        ticketDAO.saveEntity(ticket);
+//        ticketDAO.saveEntity(ticket);
 
         System.out.println(ticketDAO.getEntityById(1L));
-
-        updateTicket(ticketDAO);
-
-        ticketDAO.removeEntity(ticket);
-
-        System.out.println(ticketDAO.getAllEntities());
+//
+//        updateTicket(ticketDAO);
+//
+//        ticketDAO.removeEntity(ticket);
+//
+//        System.out.println(ticketDAO.getAllEntities());
 
 
     }
