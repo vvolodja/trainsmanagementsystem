@@ -77,8 +77,15 @@ public class LocomotiveView {
         while (locomotive.getCapacity() == 0){
             System.out.println("Enter the locomotive capacity");
             locomotive.setCapacity(scanner.nextInt());
-
-
+        }
+        while (locomotive.getPower()==0){
+            System.out.println("Enter the locomotive power");
+            locomotive.setPower(scanner.nextInt());
+        }
+        while (locomotive.getYearOfIssue()==0){
+            System.out.println("Enter the year when the locomotive was released");
+            locomotive.setYearOfIssue(scanner.nextInt());
+            if()
         }
 
 
