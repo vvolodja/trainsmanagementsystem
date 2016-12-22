@@ -89,6 +89,35 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
 
         return null;
     }
+    public ArrayList<PassengerWaggon> getAllEntities() {
+        ArrayList<PassengerWaggon> passengerWaggons= new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
+
+                    PassengerWaggon passengerWaggon = new PassengerWaggon();
+
+                    passengerWaggon.setId(Long.parseLong(splitedLine[0]));
+                    passengerWaggon.setTypeOfWagoonComfort(splitedLine[1]);
+                    passengerWaggon.setQuantityOfSeats(Integer.parseInt(splitedLine[2]));
+
+
+                    passengerWaggons.add(passengerWaggon);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return passengerWaggons;
+
+    }
+
 
 }
 
