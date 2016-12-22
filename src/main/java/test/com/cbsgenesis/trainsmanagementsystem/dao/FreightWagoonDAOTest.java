@@ -23,7 +23,7 @@ public class FreightWagoonDAOTest {
             FreightWagoon freightWagoon =new FreightWagoon();
 
         freightWagoon.setId(1L);
-        freightWagoon.setTypeOfCargoForWagoon("Type of Freight for Wagoon: Metal cargo ");
+        freightWagoon.setTypeOfCargoForWagoon("Type of Freight for Wagon: Metal cargo ");
         freightWagoon.setWeight(555);
         freightWagoon.setDimension(444);
 
@@ -35,7 +35,7 @@ public class FreightWagoonDAOTest {
         FreightWagoon freightWagoon =new FreightWagoon();
 
         freightWagoon.setId(1L);
-        freightWagoon.setTypeOfCargoForWagoon("Type of Freight for Wagoon: Quilid cargo");
+        freightWagoon.setTypeOfCargoForWagoon("Type of Freight for Wagon: Liquid cargo");
         freightWagoon.setWeight(777);
         freightWagoon.setDimension(888);
 
