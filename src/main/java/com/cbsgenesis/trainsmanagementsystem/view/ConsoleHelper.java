@@ -23,7 +23,7 @@ public class ConsoleHelper {
     PassengerController passengerController = new PassengerController();
 
     public void showTicketMenu() throws ParseException {
-        System.out.println("==========TICKETS==========\n");
+        System.out.println("========== TICKETS ==========\n");
         System.out.println("Select option:");
         System.out.println("1 - Create new ticket");
         System.out.println("2 - Find a ticket");
@@ -47,6 +47,7 @@ public class ConsoleHelper {
                     findTicketMenu();
                     break;
                 case 3:
+                    viewAllTickets();
                     break;
                 case 0:
                     break;
@@ -66,7 +67,7 @@ public class ConsoleHelper {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("==========CREATE NEW TICKET==========\n");
+        System.out.println("========== CREATE NEW TICKET ==========\n");
 
         while (ticket.getId() == null) {
             System.out.println("Enter ticket ID:");
@@ -161,7 +162,7 @@ public class ConsoleHelper {
         System.out.println("New ticket have been successfully added");
         System.out.println();
 
-        System.out.println("==========TICKETS==========\n");
+        System.out.println("========== TICKETS ==========\n");
         System.out.println("Select option:");
         System.out.println("1 - Create new ticket");
         System.out.println("2 - Find a ticket");
@@ -172,7 +173,7 @@ public class ConsoleHelper {
     private void findTicketMenu() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("==========CREATE NEW TICKET==========\n");
+        System.out.println("========== FIND A TICKET ==========\n");
         System.out.println("Enter ticket ID to start search or enter 0 to move to previous menu:");
         Long tempId = scanner.nextLong();
 
@@ -184,7 +185,7 @@ public class ConsoleHelper {
             showTicketInfo(ticket);
         }
 
-        System.out.println("==========TICKETS==========\n");
+        System.out.println("========== TICKETS ==========\n");
         System.out.println("Select option:");
         System.out.println("1 - Create new ticket");
         System.out.println("2 - Find a ticket");
@@ -193,7 +194,7 @@ public class ConsoleHelper {
     }
 
     private void showTicketInfo(Ticket ticket){
-        System.out.println("=== TICKET #" + ticket.getId() + "===\n");
+        System.out.println("=== TICKET #" + ticket.getId() + " ===\n");
         System.out.println("Ticket ID: " + ticket.getId());
         System.out.println("First name: " + ticket.getFirstName());
         System.out.println("Last name: " + ticket.getLastName());
