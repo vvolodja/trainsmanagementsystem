@@ -65,7 +65,7 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
     }
 
     @Override
-    public ArrayList<Cargo> removeEntity(PassengerWaggon passngerWaggon) {try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+    public ArrayList<PassengerWaggon> removeEntity(PassengerWaggon passngerWaggon) {try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
         String read = null;
         while ((read = reader.readLine()) != null) {
             String[] splitedFile = read.split("/");
