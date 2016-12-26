@@ -134,8 +134,6 @@ public class StationDAO implements GenericDAO<Station> {
                     station.setName(splitedLine[1]);
                     station.setDescription(splitedLine[2]);
 
-
-                    stations.add(station);
                 }
             }
         } catch (IOException e) {
@@ -146,3 +144,5 @@ public class StationDAO implements GenericDAO<Station> {
     }
 
 }
+
+
