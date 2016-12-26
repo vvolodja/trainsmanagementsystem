@@ -8,18 +8,19 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
-/**
- * Created by Java on 22.12.2016.
+/** Author @Eugeny Nenenko
+ *  Created by Java on 22.12.2016.
  */
 public class CargoView {
     CargoController cargoController = new CargoController();
 
     public void showCargoMenu() throws ParseException {
 
-        System.out.println("==================CARGO=====================");
+        System.out.println("==================CREATE NEW CARGO=====================");
         System.out.println("Select option:");
         System.out.println("1 - Create new cargo");
         System.out.println("2 - Find a cargo");
@@ -28,7 +29,7 @@ public class CargoView {
 
         Scanner scanner = new Scanner(System.in);
         Integer choice = -1;
-        System.out.println("========== TICKETS ==========\n");
+        System.out.println("==========CARGO==========\n");
 
         while (choice != 0) {
             choice = scanner.nextInt();
@@ -41,10 +42,10 @@ public class CargoView {
                     }
                     break;
                 case 2:
-                    //findCargoMenu();
+                    findCargoMenu();
                     break;
                 case 3:
-                   // viewAllCargos();
+                    viewAllCargo();
                     break;
                 case 0:
                     break;
@@ -109,6 +110,9 @@ public class CargoView {
         System.out.println("New cargo have been successfully added");
         System.out.println();
 
+
+
+
         System.out.println("==================CARGO=====================");
         System.out.println("Select option:");
         System.out.println("1 - Create new cargo");
@@ -117,17 +121,49 @@ public class CargoView {
         System.out.println("0 - Move to previous menu");
     }
 
-    public void findCargoMenu(){
+    public void findCargoMenu() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("========== FIND A TICKET ==========\n");
         System.out.println("Enter ticket ID to start search or enter 0 to move to previous menu:");
         Long tempId = scanner.nextLong();
         Cargo cargo = cargoController.getEntityById(tempId);
         if (cargo.getId() == null) {
-                   System.out.println("There is no ticket with such ID");
-                   } else {
-                       showCargoInfo(cargo);
-                   }
+            System.out.println("There is no ticket with such ID");
+        } else {
+            showCargoInfo(cargo);
+        }
+        System.out.println("==================CARGO=====================");
+        System.out.println("Select option:");
+        System.out.println("1 - Create new cargo");
+        System.out.println("2 - Find a cargo");
+        System.out.println("3 - View all cargos");
+        System.out.println("0 - Move to previous menu");
+    }
+
+    public void showCargoInfo(Cargo cargo) {
+        System.out.println("=== Cargo #" + cargo.getId() + " ===\n");
+        System.out.println("Type cargo: " + cargo.getType());
+        System.out.println("Volume cargo: " + cargo.getVolume());
+        System.out.println("Dimension cargo :" + cargo.getDimension());
+        System.out.println("Quantity of cars cargo :" + cargo.getQuantityOfCars());
+
+        System.out.println();
 
     }
+
+    public void viewAllCargo() {
+        ArrayList<Cargo> cargos = cargoController.getAllEntities();
+
+        for (int i = 0; i < cargos.size(); i++) {
+            showCargoInfo(cargos.get(i));
+        }
+
+        System.out.println("==================CARGO=====================");
+        System.out.println("Select option:");
+        System.out.println("1 - Create new cargo");
+        System.out.println("2 - Find a cargo");
+        System.out.println("3 - View all cargos");
+        System.out.println("0 - Move to previous menu");
+    }
+
 }

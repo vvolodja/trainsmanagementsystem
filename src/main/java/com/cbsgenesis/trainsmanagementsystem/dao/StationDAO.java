@@ -116,4 +116,33 @@ public class StationDAO implements GenericDAO<Station> {
 
         return null;
     }
+
+    public ArrayList<Station> getAllEntities() {
+        ArrayList<Station> stations = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
+
+                    Station station = new Station();
+
+                    station.setId(Long.parseLong(splitedLine[0]));
+                    station.setName(splitedLine[1]);
+                    station.setDescription(splitedLine[2]);
+
+
+                    stations.add(station);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return stations;
+    }
+
 }
