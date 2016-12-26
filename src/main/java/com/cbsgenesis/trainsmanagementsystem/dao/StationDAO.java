@@ -90,7 +90,7 @@ public class StationDAO implements GenericDAO<Station> {
 
 
     @Override
-    public ArrayList<Station> removeEntity(Station station) {
+    public ArrayList<Cargo> removeEntity(Station station) {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
@@ -118,7 +118,7 @@ public class StationDAO implements GenericDAO<Station> {
     }
 
     public ArrayList<Station> getAllEntities() {
-        ArrayList<Station> station= new ArrayList<>();
+        ArrayList<Station> stations = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 
@@ -132,18 +132,17 @@ public class StationDAO implements GenericDAO<Station> {
 
                     station.setId(Long.parseLong(splitedLine[0]));
                     station.setName(splitedLine[1]);
-                    station.setDescription(Integer.parseInt(splitedLine[2]));
+                    station.setDescription(splitedLine[2]);
 
-
-                    station.add(station);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return station;
-
+        return stations;
     }
 
 }
+
+
