@@ -70,7 +70,7 @@ public class CargoDAO implements GenericDAO<Cargo> {
 
 
     @Override
-    public  ArrayList<Cargo> removeEntity(Cargo cargo) {
+    public void removeEntity(Cargo cargo) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
             while ((read = reader.readLine()) != null) {
@@ -92,7 +92,6 @@ public class CargoDAO implements GenericDAO<Cargo> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
 

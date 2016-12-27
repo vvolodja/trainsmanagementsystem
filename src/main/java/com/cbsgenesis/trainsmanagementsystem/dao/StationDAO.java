@@ -1,6 +1,5 @@
 package com.cbsgenesis.trainsmanagementsystem.dao;
 
-import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 import com.cbsgenesis.trainsmanagementsystem.model.Station;
 
 import java.io.*;
@@ -89,7 +88,7 @@ public class StationDAO implements GenericDAO<Station> {
 
 
     @Override
-    public ArrayList<Cargo> removeEntity(Station station) {
+    public void removeEntity(Station station) {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
@@ -112,8 +111,6 @@ public class StationDAO implements GenericDAO<Station> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return null;
     }
 
     public ArrayList<Station> getAllEntities() {
