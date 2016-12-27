@@ -9,6 +9,13 @@ package com.cbsgenesis.trainsmanagementsystem.view;
 
 public class ConsoleHelper {
     TicketView ticketView = new TicketView();
+    PassengerView passengerView = new PassengerView();
 
+    public TicketView getTicketView() {
+        return ticketView;
+    }
 
+    public PassengerView getPassengerView() {
+        return passengerView;
+    }
 }

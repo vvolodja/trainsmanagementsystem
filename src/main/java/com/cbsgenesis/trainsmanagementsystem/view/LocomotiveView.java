@@ -6,11 +6,13 @@ import com.cbsgenesis.trainsmanagementsystem.model.Locomotive;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 /**
  * * Create Locomotive View
+ *
  * @Author Evgenij Lukashik
  */
 public class LocomotiveView {
@@ -36,6 +38,16 @@ public class LocomotiveView {
                     e.printStackTrace();
                 }
                 break;
+            case 2:
+                findLocomotiveMenu();
+                break;
+            case 3:
+                viewAllLocomotives();
+                break;
+            case 0:
+                break;
+            default:
+                System.out.println("This is no such option. Please chose from the list.");
 
         }
 
@@ -88,7 +100,8 @@ public class LocomotiveView {
         while (locomotive.getYearOfIssue() == 0) {
             System.out.println("Enter the year when the locomotive was released (1955-2016)");
             locomotive.setYearOfIssue(scanner.nextInt());
-            if (locomotive.getYearOfIssue() instanceof Integer || locomotive.getYearOfIssue() > 1955) {
+            if (locomotive.getYearOfIssue() instanceof Integer || locomotive.getYearOfIssue() > 1955
+                    || locomotive.getYearOfIssue() < 2016) {
                 continue;
             } else {
                 locomotive.setYearOfIssue(0);
@@ -104,17 +117,81 @@ public class LocomotiveView {
                 locomotive.setFuelType(tipeOfFuel);
             } else if (tipeOfFuel.equalsIgnoreCase("ELECTRICITY")) {
                 locomotive.setFuelType(tipeOfFuel);
-            }else
+            } else
                 System.out.println("Do not put right type of fuel, please enter one of the three fuels (DIESEL, GAZ, ELECTRICITY)");
         }
 
-        while (locomotive.getLastServiceDate()==null){
+        while (locomotive.getLastServiceDate() == null) {
             System.out.println("Enter the date of the last service");
             locomotive.setLastServiceDate(dateFormat.parse(scanner.nextLine()));
         }
+
+        locomotiveController.saveEntity(locomotive);
+        System.out.println("The new locomotive was successfully created");
+
+        System.out.println("LOCOMOTIVE");
+        System.out.println("Select option");
+        System.out.println("1 - Create Locomotive");
+        System.out.println("2 - Find Locomotive");
+        System.out.println("3 - View all Locomotives");
+        System.out.println("0 - Move to previous menu");
+
+
     }
 
+    public void findLocomotiveMenu() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("FIND LOCOMOTIVE");
+        System.out.println("Enter the ID of the locomotive to start the search or 0 to move to the previous menu");
+
+        Long temporaryID = scanner.nextLong();
+
+        Locomotive locomotive = locomotiveController.getEntityById(temporaryID);
+
+        if (locomotive.getId() == 0) {
+            System.out.println("There is no locomotive with such ID");
 
 
+        } else {
+            showLocomotiveInfo(locomotive);
+        }
 
+        System.out.println("LOCOMOTIVE");
+        System.out.println("Select option");
+        System.out.println("1 - Create Locomotive");
+        System.out.println("2 - Find Locomotive");
+        System.out.println("3 - View all Locomotives");
+        System.out.println("0 - Move to previous menu");
+
+
+    }
+
+    public void showLocomotiveInfo(Locomotive locomotive) {
+        System.out.println("LOCOMOTIVE" + locomotive.getId());
+        System.out.println("Locomotive name" + locomotive.getName());
+        System.out.println("Capacity" + locomotive.getCapacity());
+        System.out.println("FuelType" + locomotive.getFuelType());
+        System.out.println("Power" + locomotive.getPower());
+        System.out.println("Year of issue" + locomotive.getYearOfIssue());
+        System.out.println("Last service date" + locomotive.getLastServiceDate());
+
+
+    }
+
+    public void viewAllLocomotives() {
+        List<Locomotive> locomotives = locomotiveController.showAllLocomotives();
+
+        for (int i = 0; i < locomotives.size(); i++) {
+            showLocomotiveInfo(locomotives.get(i));
+        }
+
+        System.out.println("LOCOMOTIVE");
+        System.out.println("Select option");
+        System.out.println("1 - Create Locomotive");
+        System.out.println("2 - Find Locomotive");
+        System.out.println("3 - View all Locomotives");
+        System.out.println("0 - Move to previous menu");
+
+    }
 }
+
