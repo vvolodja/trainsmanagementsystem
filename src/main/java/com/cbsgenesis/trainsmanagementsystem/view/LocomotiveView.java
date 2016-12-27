@@ -10,7 +10,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 /**
- * Created by Java on 20.12.2016.
+ * * Create Locomotive View
+ * @Author Evgenij Lukashik
  */
 public class LocomotiveView {
     LocomotiveController locomotiveController = new LocomotiveController();
