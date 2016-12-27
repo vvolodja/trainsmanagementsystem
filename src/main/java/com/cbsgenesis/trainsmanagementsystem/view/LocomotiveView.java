@@ -18,10 +18,14 @@ import java.util.Scanner;
 public class LocomotiveView {
     LocomotiveController locomotiveController = new LocomotiveController();
 
+
     public void showLocomotiveMenu() {
-        System.out.println("LOCOMOTIVE");
+        System.out.println("========LOCOMOTIVE==========");
         System.out.println("Select option");
         System.out.println("1 - Create Locomotive");
+        System.out.println("2 - Find Locomotive");
+        System.out.println("3 - View all Locomotives");
+        System.out.println("0 - Move to previous menu");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -57,6 +61,8 @@ public class LocomotiveView {
 
         Locomotive locomotive = new Locomotive();
 
+        locomotive.setCapacity(-1);
+        locomotive.setPower(-1);
         DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm", Locale.ENGLISH);
 
         Scanner scanner = new Scanner(System.in);
@@ -92,10 +98,23 @@ public class LocomotiveView {
         while (locomotive.getCapacity() == 0) {
             System.out.println("Enter the locomotive capacity");
             locomotive.setCapacity(scanner.nextInt());
+            if (locomotive.getCapacity() instanceof Integer || locomotive.getCapacity() > -1) {
+                continue;
+            } else {
+                locomotive.setCapacity(-1);
+                System.out.println("Wrong value. Capacity must be greater or equal to zero.");
+            }
         }
         while (locomotive.getPower() == 0) {
             System.out.println("Enter the locomotive power");
             locomotive.setPower(scanner.nextInt());
+            if (locomotive.getPower() instanceof Integer || locomotive.getCapacity() > -1){
+                continue;
+
+            }else {
+                locomotive.setPower(-1);
+                System.out.println("Wrong value. Power of locomotive must be greater or equal to zero.");
+            }
         }
         while (locomotive.getYearOfIssue() == 0) {
             System.out.println("Enter the year when the locomotive was released (1955-2016)");
@@ -129,7 +148,7 @@ public class LocomotiveView {
         locomotiveController.saveEntity(locomotive);
         System.out.println("The new locomotive was successfully created");
 
-        System.out.println("LOCOMOTIVE");
+        System.out.println("========LOCOMOTIVE==========");
         System.out.println("Select option");
         System.out.println("1 - Create Locomotive");
         System.out.println("2 - Find Locomotive");
@@ -156,7 +175,7 @@ public class LocomotiveView {
             showLocomotiveInfo(locomotive);
         }
 
-        System.out.println("LOCOMOTIVE");
+        System.out.println("========LOCOMOTIVE==========");
         System.out.println("Select option");
         System.out.println("1 - Create Locomotive");
         System.out.println("2 - Find Locomotive");
@@ -167,7 +186,7 @@ public class LocomotiveView {
     }
 
     public void showLocomotiveInfo(Locomotive locomotive) {
-        System.out.println("LOCOMOTIVE" + locomotive.getId());
+        System.out.println("========LOCOMOTIVE==========" + locomotive.getId());
         System.out.println("Locomotive name" + locomotive.getName());
         System.out.println("Capacity" + locomotive.getCapacity());
         System.out.println("FuelType" + locomotive.getFuelType());
@@ -185,7 +204,7 @@ public class LocomotiveView {
             showLocomotiveInfo(locomotives.get(i));
         }
 
-        System.out.println("LOCOMOTIVE");
+        System.out.println("========LOCOMOTIVE==========");
         System.out.println("Select option");
         System.out.println("1 - Create Locomotive");
         System.out.println("2 - Find Locomotive");

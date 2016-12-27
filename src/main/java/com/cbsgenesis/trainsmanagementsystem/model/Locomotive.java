@@ -24,10 +24,9 @@ public class Locomotive extends NamedEntity {
         this.lastServiceDate = lastServiceDate;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
-
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
@@ -63,5 +62,16 @@ public class Locomotive extends NamedEntity {
 
     public void setLastServiceDate(Date lastServiceDate) {
         this.lastServiceDate = lastServiceDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Locomotive{" +
+                "capacity=" + capacity +
+                ", power=" + power +
+                ", yearOfIssue=" + yearOfIssue +
+                ", fuelType='" + fuelType + '\'' +
+                ", lastServiceDate=" + lastServiceDate +
+                '}';
     }
 }
