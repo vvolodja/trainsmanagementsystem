@@ -16,6 +16,6 @@ public class StationFactory implements EntityFactory<Station>{
 
     @Override
     public Station createEntity(String parameter) {
-        return new Station(parameter);
+        return new Station() ;
     }
 }

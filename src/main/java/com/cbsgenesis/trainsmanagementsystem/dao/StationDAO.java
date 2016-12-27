@@ -1,6 +1,5 @@
 package com.cbsgenesis.trainsmanagementsystem.dao;
 
-import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 import com.cbsgenesis.trainsmanagementsystem.model.Station;
 
 import java.io.*;
@@ -27,7 +26,6 @@ public class StationDAO implements GenericDAO<Station> {
                 for (String line : splitedFile) {
                     String[] splitedLine = line.split(",");
                     Long firstLong = Long.parseLong(splitedLine[0]);
-
                     if (firstLong.equals(id)) {
 
 
@@ -90,7 +88,7 @@ public class StationDAO implements GenericDAO<Station> {
 
 
     @Override
-    public ArrayList<Station> removeEntity(Station station) {
+    public void removeEntity(Station station) {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
@@ -113,12 +111,10 @@ public class StationDAO implements GenericDAO<Station> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return null;
     }
 
     public ArrayList<Station> getAllEntities() {
-        ArrayList<Station> station= new ArrayList<>();
+        ArrayList<Station> stations = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 
@@ -132,18 +128,17 @@ public class StationDAO implements GenericDAO<Station> {
 
                     station.setId(Long.parseLong(splitedLine[0]));
                     station.setName(splitedLine[1]);
-                    station.setDescription(Integer.parseInt(splitedLine[2]));
+                    station.setDescription(splitedLine[2]);
 
-
-                    station.add(station);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return station;
-
+        return stations;
     }
 
 }
+
+

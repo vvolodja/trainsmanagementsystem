@@ -1,7 +1,6 @@
 package com.cbsgenesis.trainsmanagementsystem.dao;
 
 
-import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 import com.cbsgenesis.trainsmanagementsystem.model.PassengerWaggon;
 
 import java.io.*;
@@ -66,6 +65,7 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
 
     @Override
     public void removeEntity(PassengerWaggon passengerWaggon) {
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
             while ((read = reader.readLine()) != null) {
@@ -74,7 +74,6 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
                     String[] splitedLine = line.split(",");
 
                     Long firstLong = Long.parseLong(splitedLine[0]);
-
                     if (firstLong == passengerWaggon.getId()) {
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                             writer.write("");
@@ -115,10 +114,7 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
         }
 
         return passengerWaggons;
-
     }
-
-
 }
 
 
