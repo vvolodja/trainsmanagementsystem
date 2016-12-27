@@ -7,16 +7,16 @@ import java.util.Date;
  */
 public class Locomotive extends NamedEntity {
 
-    private int capacity;
-    private int power;
-    private int yearOfIssue;
+    private Integer capacity;
+    private Integer power;
+    private Integer yearOfIssue;
     private String fuelType;
     private Date lastServiceDate;
 
     public Locomotive() {
     }
 
-    public Locomotive(int capacity, int power, int yearOfIssue, String fuelType, Date lastServiceDate) {
+    public Locomotive(Integer capacity, Integer power, Integer yearOfIssue, String fuelType, Date lastServiceDate) {
         this.capacity = capacity;
         this.power = power;
         this.yearOfIssue = yearOfIssue;
@@ -24,27 +24,27 @@ public class Locomotive extends NamedEntity {
         this.lastServiceDate = lastServiceDate;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
-    public int getPower() {
+    public Integer getPower() {
         return power;
     }
 
-    public void setPower(int power) {
+    public void setPower(Integer power) {
         this.power = power;
     }
 
-    public int getYearOfIssue() {
+    public Integer getYearOfIssue() {
         return yearOfIssue;
     }
 
-    public void setYearOfIssue(int yearOfIssue) {
+    public void setYearOfIssue(Integer yearOfIssue) {
         this.yearOfIssue = yearOfIssue;
     }
 
@@ -62,5 +62,16 @@ public class Locomotive extends NamedEntity {
 
     public void setLastServiceDate(Date lastServiceDate) {
         this.lastServiceDate = lastServiceDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Locomotive{" +
+                "capacity=" + capacity +
+                ", power=" + power +
+                ", yearOfIssue=" + yearOfIssue +
+                ", fuelType='" + fuelType + '\'' +
+                ", lastServiceDate=" + lastServiceDate +
+                '}';
     }
 }
