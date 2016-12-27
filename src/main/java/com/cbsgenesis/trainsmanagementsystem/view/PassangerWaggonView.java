@@ -7,6 +7,7 @@ import com.cbsgenesis.trainsmanagementsystem.model.Passenger;
 import com.cbsgenesis.trainsmanagementsystem.model.PassengerWaggon;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -65,23 +66,9 @@ public class PassangerWaggonView {
         scanner = new Scanner(System.in);
 
         while (passengerWaggon.getTypeOfWagoonComfort() == null || passengerWaggon.getTypeOfWagoonComfort().isEmpty()) {
-            System.out.println("Enter Passenger Wagoon type of wagoon comfort:");
+            System.out.println("Enter Passenger Wagoons type of wagoon comfort:");
             passengerWaggon.setTypeOfWagoonComfort(scanner.nextLine());
 
-        }
-        while (passengerWaggon.getQuantityOfSeats() == null || passengerWaggon.getQuantityOfSeats().isEmpty()) {
-            System.out.println("Enter Passenger Wagoon quantity of seats:");
-            passengerWaggon.setQuantityOfSeats(scanner.nextLine());
-        }
-
-        while (passengerWaggon.getTicketId() == null) {
-            System.out.println("Enter passenger's ticket ID:");
-            Long tempId = scanner.nextLong();
-            if (ticketController.getEntityById(tempId).getId() == null) {
-                System.out.println("There is no ticket with such ID");
-            } else {
-                passengerWaggon.setTicketId(tempId);
-            }
         }
 
         passengerWagoonController.saveEntity(passengerWaggon);
@@ -122,16 +109,14 @@ public class PassangerWaggonView {
         System.out.println("=== PASSENGER WAGOON #" + passengerWaggon.getId() + " ===\n");
         System.out.println("Type of wagoon comfort: " + passengerWaggon.getTypeOfWagoonComfort());
         System.out.println("Quantity of seats: " + passengerWaggon.getQuantityOfSeats());
-        System.out.println("Passenger's ticket ID: " + passenger.getTicketId());
         System.out.println();
     }
 
     public void viewAllPassengerWagoon() {
-        ArrayList<PassengerWaggon> passengerWaggons = passengerWagoonController.getAllEntities();
+        List<PassengerWaggon> passengerWaggons = passengerWagoonController.getAllEntities();
 
-        for (int i = 0; i < passengerWaggons.size(); i++) {
-            showPassengerWagoonInfo();
-            Info(passengerWaggons.get(i));
+        for (PassengerWaggon wagoon : passengerWaggons) {
+            showPassengerWagoonInfo(wagoon);
         }
 
         System.out.println("========== PASSENGER WAGOONS ==========\n");
@@ -141,6 +126,4 @@ public class PassangerWaggonView {
         System.out.println("3 - View all Passenger Wagoon");
         System.out.println("0 - Move to previous menu");
     }
-
-
 }

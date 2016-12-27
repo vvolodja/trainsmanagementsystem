@@ -6,6 +6,7 @@ import com.cbsgenesis.trainsmanagementsystem.model.Passenger;
 import com.cbsgenesis.trainsmanagementsystem.model.PassengerWaggon;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Java on 22.12.2016.
@@ -26,6 +27,9 @@ public class PassengerWagoonController {
 
     public void removeEntity(PassengerWaggon passengerWaggon){passengerWaggonDAO.removeEntity(passengerWaggon);}
 
+    public List<PassengerWaggon> getAllEntities() {
+        return passengerWaggonDAO.getAllEntities();
+    }
 
 
 }

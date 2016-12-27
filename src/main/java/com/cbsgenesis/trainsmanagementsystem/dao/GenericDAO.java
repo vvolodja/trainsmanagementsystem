@@ -18,6 +18,6 @@ public interface GenericDAO<T> {
 
     void updateEntity(T entity);
 
-    ArrayList<Cargo> removeEntity(T entity);
+    void removeEntity(T entity);
 
 }
