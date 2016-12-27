@@ -45,7 +45,7 @@ public class CargoDAOTest {
         Cargo cargo = new Cargo();
 
         cargo.setId(1L);
-        cargo.setType("Quilid cargo");
+        cargo.setType("Liquid cargo");
         cargo.setWeight(111);
         cargo.setDimension(5544);
         cargo.setQuantityOfCars(3322);
