@@ -1,7 +1,6 @@
 package com.cbsgenesis.trainsmanagementsystem.dao;
 
 
-import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
 import com.cbsgenesis.trainsmanagementsystem.model.PassengerWaggon;
 
 import java.io.*;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
  * Created by Java on 01.12.2016.
  *
  * @author Julia Konoh
- *
  */
 public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
 
@@ -22,7 +20,7 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
     public PassengerWaggon getEntityById(Long id) {
         PassengerWaggon passengerWaggon = new PassengerWaggon();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String read = null;
             while ((read = reader.readLine()) != null) {
                 String[] splitedFile = read.split("/");
@@ -45,7 +43,8 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
         }
         return passengerWaggon;
     }
-   @Override
+
+    @Override
     public void saveEntity(PassengerWaggon passengerWaggon) {
         String passengerWaggonToString = passengerWaggon.getId() + "," +
                 passengerWaggon.getTypeOfWagoonComfort() + "," +
@@ -65,32 +64,32 @@ public class PassengerWaggonDAO implements GenericDAO<PassengerWaggon> {
     }
 
     @Override
-    public ArrayList<Cargo> removeEntity(PassengerWaggon passngerWaggon) {try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-        String read = null;
-        while ((read = reader.readLine()) != null) {
-            String[] splitedFile = read.split("/");
-            for (String line : splitedFile) {
-                String[] splitedLine = line.split(",");
+    public void removeEntity(PassengerWaggon passngerWaggon) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String read = null;
+            while ((read = reader.readLine()) != null) {
+                String[] splitedFile = read.split("/");
+                for (String line : splitedFile) {
+                    String[] splitedLine = line.split(",");
 
-                Long firstLong = Long.parseLong(splitedLine[0]);
+                    Long firstLong = Long.parseLong(splitedLine[0]);
 
-                if (firstLong == passngerWaggon.getId()) {
-                    try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-                        writer.write("");
-                    }catch (IOException e){
-                        e.printStackTrace();
+                    if (firstLong == passngerWaggon.getId()) {
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                            writer.write("");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    } catch (IOException e) {
-        e.printStackTrace();
     }
 
-        return null;
-    }
     public ArrayList<PassengerWaggon> getAllEntities() {
-        ArrayList<PassengerWaggon> passengerWaggons= new ArrayList<>();
+        ArrayList<PassengerWaggon> passengerWaggons = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 

@@ -1,9 +1,5 @@
 package com.cbsgenesis.trainsmanagementsystem.dao;
 
-import com.cbsgenesis.trainsmanagementsystem.model.Cargo;
-
-import java.util.ArrayList;
-
 /**
  * Generic DAO class that contains common DAO methods
  *
@@ -18,6 +14,6 @@ public interface GenericDAO<T> {
 
     void updateEntity(T entity);
 
-    ArrayList<Cargo> removeEntity(T entity);
+    void removeEntity(T entity);
 
 }
