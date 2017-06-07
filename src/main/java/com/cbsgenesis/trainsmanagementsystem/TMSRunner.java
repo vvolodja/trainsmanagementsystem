@@ -7,7 +7,6 @@ import java.text.ParseException;
 /**
  * Main class of TrainManagementSystem application.
  *
- * @author Eugene Suleimanov
  */
 
 public class TMSRunner {
